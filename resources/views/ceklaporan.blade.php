@@ -37,7 +37,6 @@
                                     <h3 class="w3-head">Detail</h3>
                                     <div class="contact-main">
                                       <div class="col-md-4 map">
-                                        <p class="loc">Lokasi</p>
                                         <img src="{{asset('/uploads/resources/'.$datas->foto)}}" style="width:100%; height: 50vh;">
                                       </div>
                                       <div class="col-md-6 contact-in">
