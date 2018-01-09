@@ -16,7 +16,7 @@ class DataPelaporanController extends Controller
      */
     public function index()
     {
-        $data=DataPelaporan::all();
+        $data=DataPelaporan::orderBy('id','desc')->all();
         return view('ceklaporan',compact('data'));
     }
 
