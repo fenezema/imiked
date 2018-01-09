@@ -93,7 +93,7 @@
                                 </p>
                             </li>
                             <li>
-                                <input style="color: black; background-color: #FEE901; font-weight: bold;" type="submit" class="submit" value="Laporkan" />
+                                <input style="color: black; background-color: #FEE901; font-weight: bold;" id="sub" type="submit" class="submit" value="Laporkan" />
                             </li>
 
                             <li>
