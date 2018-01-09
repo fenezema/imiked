@@ -11,14 +11,14 @@
                 <h3 class="m-head">List Laporan</h3>
                 @foreach($data as $datas)
                 <div class="col-md-4 movie-preview">
-                    <a href="select-show.html" class="mask">
+                    <a href="" class="mask">
                         <img src="{{asset('/uploads/resources/'.$datas->foto)}}" class="img-responsive zoom-img" style="height: 25vh; width: 100%;" alt="" />
                         <div class="m-movie-title">
-                            <a class="m-movie-link" href="select-show.html">{{$datas->keterangan}}</a>
+                            <a class="m-movie-link" href="">{{$datas->keterangan}}</a>
                             <div class="clearfix"></div>
                             <div class="m-r-date">
                                 <p><i class="fa fa-calendar-o"></i>{{$datas->created_at->format('M d,Y h:i a')}}</p>
-                                <a href="select-show.html" data-toggle="modal" data-target="#{{$datas->id}}">Detail</a>
+                                <a href="" data-toggle="modal" data-target="#{{$datas->id}}">Detail</a>
                             </div>
                              <div class="clearfix"></div>
                         </div>
