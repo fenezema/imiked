@@ -29,6 +29,9 @@
                             <div class="tabs-box">
                  <div class="clearfix"> </div>
                  <div class="tab-grids">
+                <div id="spinner" class="spinner" style="display:none;">
+                    <img id="img-spinner" src="{{asset('/uploads/resources/loading.gif')}}" alt="Loading"/>
+                </div>
                  @if(session('success'))
                 <div class="row">
                     <div class="col-sm-12 col-xs-12">
@@ -55,14 +58,14 @@
                             <li class="text-right">
                                 <label>
                                     <i class="icon fa fa-camera fa-2x" style="color:#FEE901;">&nbsp;&nbsp;&nbsp;&nbsp;</i>
-                                    <input id="myFile" class="submit" type="file" name="foto" accept="image/*" hidden required="required">
+                                    <input id="myFile" class="submit" type="file" name="foto" accept="image/*" hidden>
                                 </label>
                                 <h4 id="camera" class="">Ambil gambar</h4>
                             </li>
 
                             <li>
                                 <h4><i class="icon fa fa-phone-square fa-1x" style="color:#FEE901;"></i>&nbsp;&nbsp;Nomer HP</h4>
-                                <input type="number" id="tel" name="noTelp" pattern="\d{10}" placeholder="Nomor HP" required="required" />
+                                <input type="number" id="tel" name="noTelp" class="noTelp_" pattern="\d{10}" placeholder="Nomor HP" required="required" />
                                 <p class="validation01">
                                     <span class="invalid">Masukan nomor</span>
                                     <span class="valid">Benar</span>
@@ -83,7 +86,7 @@
                             </li>
                             <li>
                                 <h4><i class="fa fa-pencil-square-o" aria-hidden="true" style="color:#FEE901"></i>&nbsp;&nbsp;Keterangan</h4>
-                                <textarea style="opacity: 0.7;" name="keterangan" class="form-control" rows="3" placeholder="Tulis Keterangan"></textarea>
+                                <textarea style="opacity: 0.7;" name="keterangan" id="keterangan_" class="form-control" rows="3" placeholder="Tulis Keterangan"></textarea>
                                 <p class="validation01">
                                     <span class="invalid">Keterangan</span>
                                     <span class="valid">Benar</span>
@@ -134,6 +137,12 @@
                     var tab=$(this).attr("href");
                     $(".tab-grid").not(tab).css("display","none");
                     $(tab).fadeIn("slow");
+                });
+                $('#sub').click(function(){
+                    if($('#keterangan_').val()!="" && $('.noTelp_').val()!="" && $('#lat').val()!="" && $('#lon').val()!="" && $('#lokasi').val()!=""){
+                        $('#spinner').show();    
+                    }
+                    
                 });
             });
         </script>

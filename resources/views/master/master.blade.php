@@ -20,6 +20,20 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link href="//fonts.googleapis.com/css?family=Oxygen:300,400,700&amp;subset=latin-ext" rel="stylesheet">
 <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
 <script src="jquery-3.2.1.min.js"></script>
+<style type="text/css">
+.spinner {
+    position: fixed;
+    top: 50%;
+    left: 15%;
+    margin-left: -50px; /* half width of the spinner gif */
+    margin-top: -50px; /* half height of the spinner gif */
+    text-align:center;
+    z-index:1;
+    overflow: auto;
+    width: 100%; /* width of the spinner gif */
+    height: 100%; /*hight of the spinner gif +2px to fix IE8 issue */
+}
+</style>
 </head>
 <!-- //head -->
 
@@ -47,115 +61,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <h4 class="modal-title" id="myModalLabel">
                             Pelaporan Online</h4>
                     </div>
-                    <!-- <div class="modal-body">
-                        <div class="row">
-                            <div class="col-md-8 extra-w3layouts" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
-                                <ul class="nav nav-tabs">
-                                    <li class="active"><a href="#Login" data-toggle="tab">Login</a></li>
-                                    <li><a href="#Registration" data-toggle="tab">Register</a></li>
-                                </ul>
-                                <div class="tab-content">
-                                    <div class="tab-pane active" id="Login">
-                                        <form  class="form-horizontal" action="#" method="get">
-                                        <div class="form-group">
-                                            <label for="email" class="col-sm-2 control-label">
-                                                Email</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="email1" placeholder="Email" required="required" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleInputPassword1" class="col-sm-2 control-label">
-                                                Password</label>
-                                            <div class="col-sm-10">
-                                                <input type="password" class="form-control" id="exampleInputPassword1" placeholder="password" required="required" />
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                            </div>
-                                            <div class="col-sm-10">
-                                                <button type="submit" class="submit btn btn-primary btn-sm">
-                                                    Submit</button>
-                                                <a href="javascript:;" class="agileits-forgot">Forgot your password?</a>
-                                            </div>
-                                        </div>
-                                        </form>
-                                    </div>
-                                    <div class="tab-pane" id="Registration">
-                                        <form  class="form-horizontal" action="#" method="get">
-                                        <div class="form-group">
-                                            <label for="email" class="col-sm-2 control-label">
-                                                Name</label>
-                                            <div class="col-sm-10">
-                                                <div class="row">
-                                                    <div class="col-md-3 col-sm-3 col-xs-3">
-                                                        <select class="form-control">
-                                                            <option>Mr.</option>
-                                                            <option>Ms.</option>
-                                                            <option>Mrs.</option>
-                                                        </select>
-                                                    </div>
-                                                    <div class="col-md-9 col-sm-9 col-xs-9">
-                                                        <input type="text" class="form-control" placeholder="Name" required="required" />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="email" class="col-sm-2 control-label">
-                                                Email</label>
-                                            <div class="col-sm-10">
-                                                <input type="email" class="form-control" id="email" placeholder="Email" required="required" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="mobile" class="col-sm-2 control-label">
-                                                Mobile</label>
-                                            <div class="col-sm-10">
-                                                <input type="tel" class="form-control" id="mobile" placeholder="Mobile" required="required" />
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="password" class="col-sm-2 control-label">
-                                                Password</label>
-                                            <div class="col-sm-10">
-                                                <input type="password" class="form-control" id="password" placeholder="Password" required="required" />
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                            </div>
-                                            <div class="col-sm-10">
-                                                <button type="submit" class="submit btn btn-primary btn-sm">
-                                                    Save & Continue</button>
-                                                <button type="reset" class="submit btn btn-default btn-sm">
-                                                    Cancel</button>
-                                            </div>
-                                        </div>
-                                        </form>
-                                    </div>
-                                </div>
-                                <div id="OR" >
-                                    OR</div>
-                            </div>
-                            <div class="col-md-4 extra-agileits">
-                                <div class="row text-center sign-with">
-                                    <div class="col-md-12">
-                                        <h3 class="other-nw">
-                                            Sign in with</h3>
-                                    </div>
-                                    <div class="col-md-12">
-                                        <div class="btn-group btn-group-justified">
-                                            <a href="#" class="btn btn-primary">Facebook</a> <a href="#" class="btn btn-danger">
-                                                Google +</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-
                     
                 </div>
             </div>
