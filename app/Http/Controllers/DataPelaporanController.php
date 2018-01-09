@@ -51,6 +51,14 @@ class DataPelaporanController extends Controller
                 'noTelp'=>$request->noTelp,
                 'foto'=>$filename,
             ]);
+        // The message
+        $message = "Do not reply.\r\nPELAPORAN BARU DITERIMA DARI ".$request->noTelp;
+
+        // In case any of our lines are larger than 70 characters, we should use wordwrap()
+        $message = wordwrap($message, 70, "\r\n");
+
+        // Send
+        mail('findryankurnia@gmail.com', 'PELAPORAN', $message);
         return view('pelaporan');
     }
 
