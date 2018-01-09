@@ -66,7 +66,6 @@ class DataPelaporanController extends Controller
         mail('findryankurnia@gmail.com', 'PELAPORAN', $message);
         if($request->hasFile('foto')){
             Image::make($foto)->resize(72, null, function ($constraint) {$constraint->aspectRatio();})->save(public_path('/uploads/resources/'.$filename));
-            return view('pelaporan');
             if ($status){
                 return redirect(route('lapor.submit'))->with('success', trans('Pelaporan Sukses!'));
             }
