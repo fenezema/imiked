@@ -29,6 +29,24 @@
                             <div class="tabs-box">
                  <div class="clearfix"> </div>
                  <div class="tab-grids">
+                 @if(session('success'))
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="alert alert-success">
+                            {!! session('success') !!}
+                        </div>
+                    </div>
+                </div>
+                @endif
+                @if(session('error'))
+                <div class="row">
+                    <div class="col-sm-12 col-xs-12">
+                        <div class="alert alert-danger">
+                            {!! session('error') !!}
+                        </div>
+                    </div>
+                </div>
+                @endif
                     <div id="tab1" class="tab-grid">  
                               <div class="login-form">  
                         <form  enctype="multipart/form-data" method="POST" id="signup" action="{{route('lapor.submit')}}">

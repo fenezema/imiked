@@ -38,11 +38,16 @@ class DataPelaporanController extends Controller
      */
     public function store(Request $request)
     {
-        $foto=$request->file('foto');
-        $filename=time().".".$foto->getClientOriginalExtension();
-        Image::make($foto)->resize(72, null, function ($constraint) {$constraint->aspectRatio();})->save(public_path('/uploads/resources/'.$filename));
+        if($request->hasFile('foto')){
+            $foto=$request->file('foto');
+            $filename=time().".".$foto->getClientOriginalExtension();
+        }
+        else{
+            $filename="None";
+        }
+        
 
-        DataPelaporan::create([
+        $status=DataPelaporan::create([
                 'keterangan'=>$request->keterangan,
                 'lat'=>$request->lat,
                 'lon'=>$request->lon,
@@ -59,7 +64,18 @@ class DataPelaporanController extends Controller
 
         // Send
         mail('findryankurnia@gmail.com', 'PELAPORAN', $message);
-        return view('pelaporan');
+        if($request->hasFile('foto')){
+            Image::make($foto)->resize(72, null, function ($constraint) {$constraint->aspectRatio();})->save(public_path('/uploads/resources/'.$filename));
+            return view('pelaporan');
+            if ($status){
+                return redirect(route('lapor.submit'))->with('success', trans('Pelaporan Sukses!'));
+            }
+            return back()->with('error', trans('Terjadi Kesalahan. Silakan coba lagi.'));
+        }
+        if ($status){
+            return redirect(route('lapor.submit'))->with('success', trans('Pelaporan Sukses!'));
+        }
+        return back()->with('error', trans('Terjadi Kesalahan. Silakan coba lagi.'));
     }
 
     /**
