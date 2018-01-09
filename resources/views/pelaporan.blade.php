@@ -55,7 +55,7 @@
                             <li class="text-right">
                                 <label>
                                     <i class="icon fa fa-camera fa-2x" style="color:#FEE901;">&nbsp;&nbsp;&nbsp;&nbsp;</i>
-                                    <input id="myFile" class="submit" type="file" name="foto" accept="image/*" capture="camera" hidden required="required">
+                                    <input id="myFile" class="submit" type="file" name="foto" accept="image/*" hidden required="required">
                                 </label>
                                 <h4 id="camera" class="">Ambil gambar</h4>
                             </li>
