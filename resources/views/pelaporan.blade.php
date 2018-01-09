@@ -78,7 +78,7 @@
                                 <input type="hidden" id="lon" name="lon" placeholder="Lokasi">
                                 <input type="hidden" id="lokasi" name="lokasi" placeholder="Lokasi">
                                 <div id="ketlokasi">
-                                    <input type="text" id="tel" name="ketlok"  placeholder="Detail lokasi" required="required" />
+                                    <input type="text" id="tel" class="ketlok_" name="ketlok"  placeholder="Detail lokasi" required="required" />
                                 </div>
                                 <button type="button" id="button1" style="color: black; background-color: Transparent; border-color: #FEE901;" class="btn btn-warning">
                                     <span class="glyphicon glyphicon-search"></span><h4>Cari lokasi</h4>
@@ -139,7 +139,7 @@
                     $(tab).fadeIn("slow");
                 });
                 $('#sub').click(function(){
-                    if($('#keterangan_').val()!="" && $('.noTelp_').val()!="" && $('#lat').val()!="" && $('#lon').val()!="" && $('#lokasi').val()!=""){
+                    if($('#keterangan_').val()!="" && $('.noTelp_').val()!="" && $('#lat').val()!="" && $('#lon').val()!="" && $('#lokasi').val()!="" && $('.ketlok_').val()!=""){
                         $('#spinner').show();    
                     }
                     
