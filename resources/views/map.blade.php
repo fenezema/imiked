@@ -78,19 +78,7 @@
 
             infowindow.open(map, marker);
 
-            var alamat_len=results[0].address_components.length;
-            console.log(results[0].address_components[0].short_name);
-            var alamat_=""
-
-            for (var i=0;i<alamat_len-2;i+=1){
-              if (i==alamat_len-3)
-                  alamat_+=results[0].address_components[i].short_name
-              else    
-                  alamat_+=results[0].address_components[i].short_name+", "
-            }
-
-            console.log(alamat_);
-            console.log(typeof alamat_);
+            var alamat_=results[0].formatted_address;
             $('#lokasi').val(alamat_);
             $('#lat').val(lati);
             $('#lon').val(longi);
