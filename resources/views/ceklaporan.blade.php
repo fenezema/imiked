@@ -45,6 +45,7 @@
                                                     <p class="para1">{{$datas->ketlok}}</p>
                                                   <p class="sed-para">Keterangan</p>
                                                     <p class="para1">{{$datas->keterangan}}<br>Nomor HP : {{$datas->noTelp}}<br>Tanggal : {{$datas->created_at->format('M d,Y h:i a')}}</p>
+                                                    <a target="_blank" href="{{URL::to('https://www.google.co.id/maps/place/'.$datas->lat.",".$datas->lon)}}">Cari</a>
                                       </div>
                                       <div class="clearfix"> </div>
                                     </div>

@@ -109,9 +109,12 @@
 
                                 $('#myFile').change(function () {
                                     var search_id = $(this).val();
+                                    console.log(search_id);
+                                    var filename=search_id.split('\\');
+                                    console.log(filename);
                                     var sump = $('#camera');
                                     sump.empty();
-                                    sump.append(search_id);
+                                    sump.append(filename[2]);
                                 });
 
                                 $("#tab2").hide();
