@@ -52,6 +52,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="{{route('lapor')}}" style="color: #FEE901;"><span style="color: white;">PELAPORAN </span>ONLINE</a>
                 </h1>
             </div>
+            <div class="w3layouts-login">
+                 <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();">
+                    <i class="glyphicon glyphicon-user"> </i>Logout
+                </a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    {{ csrf_field() }}
+                </form>
+            </div> 
           <!-- <div class="w3layouts-login">
                 <a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>Login/Register</a>
             </div>   -->  

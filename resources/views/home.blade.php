@@ -1,22 +1,14 @@
-@extends('master.master')
+@extends('master.masterlaporan')
 @section('title') Pelaporan
 @stop
 @section('head')
 @stop
 
 @section('content')
-    <div class="agile-movies w3layouts-content" id="hehe">
+    <div class="agile-movies w3layouts-content" id="hehe" style="margin-top: 10vh;">
         <div class="container">
             <div class="now-showing-movies">
                 <h3 class="m-head">List Laporan</h3>
-                <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();">
-                    Logout
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
                 @foreach($data as $datas)
                 <div class="col-md-4 movie-preview">
                     <a href="" class="mask">

@@ -18,7 +18,7 @@
 @stop
 
 @section('content')
-<div class="categories-section main-grid-border" id="mobilew3layouts">
+<div class="categories-section main-grid-border" id="mobilew3layouts" style="margin-top: 25px;">
     <div class="container">
         <div class="category-list">
             <div id="parentVerticalTab">
