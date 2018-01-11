@@ -14,3 +14,7 @@
 Route::get('/','DataPelaporanController@index')->name('landing');
 Route::get('/lapor','DataPelaporanController@create')->name('lapor');
 Route::post('/lapor','DataPelaporanController@store')->name('lapor.submit');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

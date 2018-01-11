@@ -16,8 +16,7 @@ class DataPelaporanController extends Controller
      */
     public function index()
     {
-        $data=DataPelaporan::orderBy('created_at','desc')->get();
-        return view('ceklaporan',compact('data'));
+        return view('auth.login');
     }
 
     /**
