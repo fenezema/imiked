@@ -62,7 +62,7 @@
                                             </li>
 
                                             <li>
-                                                <h4><i class="icon fa fa-phone-square fa-1x" style="color:#FEE901;"></i>&nbsp;&nbsp;Nomer HP</h4>
+                                                <h4><i class="icon fa fa-phone-square fa-1x" style="color:#FEE901;"></i>&nbsp;&nbsp;Nomor HP</h4>
                                                 <input type="number" id="tel" name="noTelp" class="noTelp_" pattern="\d{10}" placeholder="Nomor HP" required="required" />
                                                 <p class="validation01">
                                                     <span class="invalid">Masukan nomor</span>
