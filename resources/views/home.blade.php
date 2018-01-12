@@ -9,6 +9,10 @@
         <div class="container">
             <div class="now-showing-movies">
                 <h3 class="m-head">List Laporan</h3>
+                @if(session('delsuccess'))
+                    {{session('delsuccess')}}
+                @endif
+
                 @foreach($data as $datas)
                 <div class="col-md-4 movie-preview">
                     <a href="" class="mask">
@@ -19,6 +23,30 @@
                             <div class="m-r-date">
                                 <p><i class="fa fa-calendar-o"></i>{{$datas->created_at->format('M d,Y h:i a')}}</p>
                                 <a href="" data-toggle="modal" data-target="#{{$datas->id}}">Detail</a>
+                                @if(Auth::user()->role=="admin")
+                                <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#delModal">Delete</button>
+                                <!-- Modal -->
+                                  <div class="modal fade" id="delModal" role="dialog">
+                                    <div class="modal-dialog">
+                                    
+                                      <!-- Modal content-->
+                                      <div class="modal-content">
+                                        <div class="modal-header">
+                                          <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                          <h4 class="modal-title">Data oleh {{$datas->noTelp}}</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                          <p>Hapus data dari {{$datas->noTelp}}. Anda yakin? </p>
+                                        </div>
+                                        <div class="modal-footer">
+                                          <a class="btn btn-danger" href="{{URL::to('/home/'.$datas->id)}}">Delete</a>
+                                        </div>
+                                      </div>
+                                      
+                                    </div>
+                                  </div>
+                            </div>
+                                @endif
                             </div>
                              <div class="clearfix"></div>
                         </div>

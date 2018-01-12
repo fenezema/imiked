@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\DataPelaporan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use App\User;
 use Mapper;
 use Image;
 use File;
@@ -35,6 +37,22 @@ class DataPelaporanController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+    public function adduser()
+    {
+        return view('makeuser');
+    }
+
+    public function storeuser(Request $request)
+    {
+        User::create([
+            'name' => $request->name,
+            'nip' => $request->nip,
+            'role' => "user",
+            'password' => bcrypt($request->password),
+        ]);
+        $data=DataPelaporan::orderBy('created_at','desc')->get();
+        return view('home',compact('data'));
+    }
     public function store(Request $request)
     {
         if($request->hasFile('foto')){
@@ -55,16 +73,16 @@ class DataPelaporanController extends Controller
                 'noTelp'=>$request->noTelp,
                 'foto'=>$filename,
             ]);
-        // The message
-        $message = "Do not reply.\r\nPELAPORAN BARU DITERIMA DARI ".$request->noTelp;
+        // // The message
+        // $message = "Do not reply.\r\nPELAPORAN BARU DITERIMA DARI ".$request->noTelp;
 
-        // In case any of our lines are larger than 70 characters, we should use wordwrap()
-        $message = wordwrap($message, 70, "\r\n");
+        // // In case any of our lines are larger than 70 characters, we should use wordwrap()
+        // $message = wordwrap($message, 70, "\r\n");
 
-        // Send
-        mail('findryankurnia@gmail.com', 'PELAPORAN', $message);
+        // // Send
+        // mail('findryankurnia@gmail.com', 'PELAPORAN', $message);
         if($request->hasFile('foto')){
-            Image::make($foto)->resize(72, null, function ($constraint) {$constraint->aspectRatio();})->save(public_path('/uploads/resources/'.$filename));
+            Image::make($foto)->resize(1050, null, function ($constraint) {$constraint->aspectRatio();})->save(public_path('/uploads/resources/'.$filename));
             if ($status){
                 return redirect(route('lapor.submit'))->with('success', trans('Pelaporan Sukses!'));
             }
@@ -116,8 +134,10 @@ class DataPelaporanController extends Controller
      * @param  \App\DataPelaporan  $dataPelaporan
      * @return \Illuminate\Http\Response
      */
-    public function destroy(DataPelaporan $dataPelaporan)
+    public function destroy(DataPelaporan $dataPelaporan,$id)
     {
-        //
+        $del=DataPelaporan::findorfail($id);
+        $del->delete();
+        return redirect(route('home'))->with('delsuccess',trans('Laporan telah dihapus'));
     }
 }

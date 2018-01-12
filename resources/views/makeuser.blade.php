@@ -9,7 +9,8 @@
     <div class="container">
         <h3 class="w3-head">Tambah Admin Baru</h3>
         <div class="col-md-8 w3ls-supportform">
-            <form action="#" method="get" name="sentMessage" id="contactForm" novalidate>
+            <form action="{{route('addUser.submit')}}" method="POST" id="contactForm">
+            {{csrf_field()}}
                 <div class="control-group form-group">
                     <div class="controls">
                         <label class="inputLabel">Nama:</label>
@@ -19,15 +20,15 @@
 
                 <div class="control-group form-group">
                     <div class="controls">
-                        <label class="inputLabel">NIP:</label>
-                        <input type="email" class="form-control" placeholder="NIP" id="nip" name="nip" required data-validation-required-message="Tulis NIP  anda">
+                        <label class="inputLabel">Username:</label>
+                        <input type="text" class="form-control" placeholder="NIP" id="nip" name="nip" required data-validation-required-message="Tulis NIP anda">
                     </div>
                 </div>
 
                 <div class="control-group form-group">
                     <div class="controls">
                         <label class="inputLabel">Password:</label>
-                        <input type="tel" class="form-control" name="password" placeholder="password" id="password" required="" data-validation-required-message="Masukan password" aria-invalid="false">
+                        <input type="password" class="form-control" name="password" placeholder="password" id="password" required="" data-validation-required-message="Masukan password" aria-invalid="false">
                         <p class="help-block"></p>
                     </div>
                 </div>
@@ -35,7 +36,7 @@
                 <div class="control-group form-group">
                     <div class="controls">
                         <label class="inputLabel">Confirm Password:</label>
-                        <input type="tel" class="form-control" name="phone" placeholder="Konfirmasi password" id="" name="" required="" data-validation-required-message="Masukan konfirmasi password" aria-invalid="false">
+                        <input type="password" class="form-control" name="phone" placeholder="Konfirmasi password" id="" name="password_confirmation" required="" data-validation-required-message="Masukan konfirmasi password" aria-invalid="false">
                         <p class="help-block"></p>
                     </div>
                 </div>
@@ -55,6 +56,5 @@
 @stop
 
 @section('script')
-    <script src="template/js/jqBootstrapValidation.js"></script>
-    <script src="template/js/contact_me.js"></script>
+    
 @stop

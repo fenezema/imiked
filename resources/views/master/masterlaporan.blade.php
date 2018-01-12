@@ -49,7 +49,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="logo">
                 <h1>
                     <img src="{!! asset('template/images/logo.PNG') !!}" alt="" height="50" width="50" />
+                    @if(Auth::guest())
                     <a href="{{route('lapor')}}" style="color: #FEE901;"><span style="color: white;">PELAPORAN </span>ONLINE</a>
+                    @else
+                    <a href="{{route('home')}}" style="color: #FEE901;"><span style="color: white;">PELAPORAN </span>ONLINE</a>
+                    @endif
                 </h1>
             </div>
             <div class="w3layouts-login">
@@ -59,6 +63,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    @if(Auth::user()->role=="admin")
+                                    <li>
+                                        <a href="{{route('addUser')}}">Tambah User</a>
+                                    </li>
+                                    @endif
                                     <li>
                                         <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

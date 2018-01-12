@@ -24,7 +24,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-         $data=DataPelaporan::orderBy('created_at','desc')->get();
+        $data=DataPelaporan::orderBy('created_at','desc')->get();
         return view('home',compact('data'));
     }
 }
