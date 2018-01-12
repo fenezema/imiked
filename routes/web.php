@@ -18,3 +18,7 @@ Route::post('/lapor','DataPelaporanController@store')->name('lapor.submit');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/ha', function () {
+    return view('makeuser');
+});
