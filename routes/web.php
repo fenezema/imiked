@@ -22,6 +22,6 @@ Route::get('/add', 'DataPelaporanController@adduser')->name('addUser')->middlewa
 Route::post('/add', 'DataPelaporanController@storeuser')->name('addUser.submit')->middleware('auth');
 Route::get('/home/{id}', 'DataPelaporanController@destroy')->middleware('auth');
 
-Route::get('/login', function(){
+Route::get('/ll', function(){
 	return view('login');
 });
