@@ -10,7 +10,7 @@
         <span style="font-weight: bold;"> Kec </span>Sukolilo</h3>
     <h4 class="text-center"><span style="font-weight: bold;"> Tanggal </span>18 Januari 2018</h4>
     <div class="row" style="margin-top: 5vh;">
-        <div class='col-sm-4'>
+        <div class='col-sm-3'>
             <label>Tanggal</label>
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker1'>
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <label>Kota/Kab</label>
             <div class="form-group">
                 <select class="form-control" data-live-search="true" >
@@ -31,7 +31,7 @@
                 </select>
             </div>
         </div>
-        <div class="col-sm-4">
+        <div class="col-sm-3">
             <label>Kecamatan</label>
             <div class="form-group">
                 <select class="form-control" data-live-search="true" >
@@ -61,11 +61,11 @@
             <div class="m-movie-title">
                 <a class="m-movie-link" href="">{{$datas->keterangan}}</a>
                 <p><i class="fa fa-calendar-o"></i>&nbsp;{{$datas->created_at->format('d M Y h:i a')}}</p>
-                <a href="" data-toggle="modal" data-target="#{{$datas->id}}">Detail</a>
+                <button class="btn btn-info" data-toggle="modal" data-target="#{{$datas->id}}"><span class="fa fa-eye"></span>&nbsp;Detail</button>
                 @if(Auth::user()->role=="admin")
-                    <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#delModal">Delete</button>
+                    <button class="btn btn-info" data-toggle="modal" data-target="#delModal{{$datas->id}}"><span class="fa fa-times"></span>&nbsp;Delete</button>
                     <!-- Modal -->
-                    <div class="modal fade" id="delModal" role="dialog">
+                    <div class="modal fade" id="delModal{{$datas->id}}" role="dialog">
                         <div class="modal-dialog">
 
                         <!-- Modal content-->
