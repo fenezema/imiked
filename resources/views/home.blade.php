@@ -41,8 +41,16 @@
                 </select>
             </div>
         </div>
+        <div class="col-sm-3">
+            <label style="color:transparent;">-</label>
+            <div class="form-group">
+                <input type='submit' class="form-control btn btn-primary" />
+            </div>
+        </div>
     </div>
 </div>
+
+<hr size="18px">
 
 <div class="container">
     <div class="row">
