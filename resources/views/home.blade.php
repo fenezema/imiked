@@ -60,10 +60,11 @@
             </a>
             <div class="m-movie-title">
                 <a class="m-movie-link" href="">{{$datas->keterangan}}</a>
-                <p><i class="fa fa-calendar-o"></i>&nbsp;{{$datas->created_at->format('d M Y h:i a')}}</p>
-                <button class="btn btn-info" data-toggle="modal" data-target="#{{$datas->id}}"><span class="fa fa-eye"></span>&nbsp;Detail</button>
+                <a class="m-movie-link" href=""><i class="fa fa-calendar-o"></i>&nbsp;{{$datas->created_at->format('d M Y h:i a')}}</a>
+                
+                <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#{{$datas->id}}"><span class="fa fa-eye"></span>&nbsp;Detail</button>
                 @if(Auth::user()->role=="admin")
-                    <button class="btn btn-info" data-toggle="modal" data-target="#delModal{{$datas->id}}"><span class="fa fa-times"></span>&nbsp;Delete</button>
+                    <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delModal{{$datas->id}}"><span class="fa fa-times"></span>&nbsp;Delete</button>
                     <!-- Modal -->
                     <div class="modal fade" id="delModal{{$datas->id}}" role="dialog">
                         <div class="modal-dialog">
