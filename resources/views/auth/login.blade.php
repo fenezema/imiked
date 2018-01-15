@@ -1,69 +1,51 @@
-@extends('layouts.app')
+@extends('master.master')
+@section('title') Pelaporan
+@stop
+@section('head')
+@stop
 
 @section('content')
-<div class="container">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+<div class="container-fluid" style="background-image: url(template/images/bg1.jpg)">
+    <div id="loginbox" style="margin-top:20vh;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-info" >
+            <div class="panel-heading">
+                <div class="panel-title">Sign In</div>
+            </div>     
 
-                <div class="panel-body">
-                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
-
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Username</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="text" class="form-control" name="nip" value="{{ old('nip') }}" required autofocus>
-
-                                @if ($errors->has('nip'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('nip') }}</strong>
-                                    </span>
-                                @endif
+            <div style="padding-top:30px" class="panel-body" >
+                <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+                <form id="loginform" class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
+                    {{ csrf_field() }}
+                    <div style="margin-bottom: 25px" class="input-group{{ $errors->has('email') ? ' has-error' : '' }}"">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="login-username" type="text" class="form-control" name="nip" placeholder="username or email">                                        
+                    </div>
+                    <div style="margin-bottom: 25px" class="input-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="login-password" type="password" class="form-control" name="password" placeholder="password">
+                    </div>
+                    <div style="margin-top:10px" class="form-group">
+                        <div class="col-sm-12 controls">
+                            <input type="submit" class="btn btn-success" value="Login">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-12 control">
+                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                Don't have an account! 
+                            <a href="#" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                Sign Up Here
+                            </a>
                             </div>
                         </div>
-
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-6 col-md-offset-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
-
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your Password?
-                                </a>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+                    </div>    
+                </form>     
+            </div>                     
+        </div>  
     </div>
 </div>
-@endsection
+
+@stop
+
+@section('script')
+@stop
