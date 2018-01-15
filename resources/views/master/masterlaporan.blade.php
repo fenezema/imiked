@@ -39,9 +39,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 }
 </style>
 </head>
-<!-- //head -->
-
-<!-- body -->
 <body >
 <header>
     <div class="container">
@@ -218,8 +215,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                      location.href = "www.yoursite.com";
                 } 
             </script>
-            <!-- start-smoth-scrolling -->
-        <!-- //here ends scrolling icon -->
 </body>
 <!-- //body -->
 </html>
