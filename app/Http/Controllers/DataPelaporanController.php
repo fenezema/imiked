@@ -69,6 +69,8 @@ class DataPelaporanController extends Controller
                 'lat'=>$request->lat,
                 'lon'=>$request->lon,
                 'lokasi'=>$request->lokasi,
+                'kot'=>$request->kot,
+                'kec'=>$request->kec,
                 'ketlok'=>$request->ketlok,
                 'noTelp'=>$request->noTelp,
                 'foto'=>$filename,

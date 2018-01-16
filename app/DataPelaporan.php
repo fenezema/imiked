@@ -9,6 +9,6 @@ class DataPelaporan extends Model
     public $timestamps = true;
     public $incrementing = true;
     protected $fillable = [
-        'keterangan', 'noTelp', 'lat','lon', 'lokasi','ketlok', 'foto',
+        'keterangan', 'noTelp', 'lat','lon', 'lokasi', 'kot', 'kec', 'ketlok', 'foto',
     ];
 }
