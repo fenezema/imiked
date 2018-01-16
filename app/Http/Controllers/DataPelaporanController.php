@@ -16,6 +16,10 @@ class DataPelaporanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function getByFilter(Request $req, $kota, $kecamatan)
+    {
+
+    }
     public function index()
     {
         return view('auth.login');

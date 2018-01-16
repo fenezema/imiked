@@ -6,9 +6,6 @@
 
 @section('content')
 <div class="container" style="margin-top: 18vh;">
-    <div class="col-sm-8 col-sm-offset-2">
-        <canvas id="densityChart" width="600" height="400"></canvas>
-    </div>
     <div class="col-sm-12" id="judul">
         <h3 class="text-center"><span style="font-weight: bold;"> Kota/Kab </span>Kediri
             <span style="font-weight: bold;"> Kec </span>Sukolilo</h3>
@@ -49,16 +46,21 @@
         <div class="col-sm-3">
             <label style="color:transparent;">-</label>
             <div class="form-group">
-                <input type='submit' class="form-control btn btn-primary" />
+                <input type='submit' id="submit_filter" class="form-control btn btn-primary" />
             </div>
         </div>
     </div>
 </div>
 
-<hr size="18px">
+<hr size="5px">
 
 <div class="container">
     <div class="row">
+
+        <div class="col-sm-8 col-sm-offset-2">
+            <canvas id="densityChart" width="600" height="400"></canvas>
+        </div>
+
         @if(session('delsuccess'))
         <div class="col-sm-12 col-xs-12">
             <div class="alert alert-success">
@@ -142,22 +144,34 @@
 
 @section('script')
 <script type="text/javascript">
-    var densityCanvas = document.getElementById("densityChart");
+    $(document).ready(function(){
+        $('#submit_filter').click(function(){
+            $.get('')
+            var densityCanvas = document.getElementById("densityChart");
 
-    Chart.defaults.global.defaultFontFamily = "Lato";
-    Chart.defaults.global.defaultFontSize = 18;
+            Chart.defaults.global.defaultFontFamily = "Lato";
+            Chart.defaults.global.defaultFontSize = 18;
 
-    var densityData = {
-      label: 'Hasil Pelaporan',
-      data: [5427, 5243, 5514, 3933, 1326, 687, 1271, 1638]
-    };
+            var nama = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
 
-    var barChart = new Chart(densityCanvas, {
-      type: 'bar',
-      data: {
-        labels: ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"],
-        datasets: [densityData]
-      }
+            var data2 = [5427, 5243, 5514, 3933, 1326, 687, 1271, 1638];
+
+            var densityData = {
+              label: 'Hasil Pelaporan',
+              data: data2,
+              backgroundColor: 'rgba(0, 99, 132, 0.6)',
+              borderColor: 'rgba(0, 99, 132, 1)'
+            };
+
+            var barChart = new Chart(densityCanvas, {
+              type: 'bar',
+              data: {
+                labels: nama,
+                datasets: [densityData]
+              }
+            });
+        });
     });
+    
 </script>
 @stop
