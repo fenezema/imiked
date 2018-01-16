@@ -104,7 +104,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--//-->     
     @yield('content')
     <!--Vertical Tab-->
-    @yield('script')
+    
     <!--Plug-in Initialisation-->
     <script type="text/javascript">
     $(document).ready(function() {
@@ -190,31 +190,47 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/easyResponsiveTabs.js"></script>
 <!-- //easy-responsive-tabs --> 
     <!-- here stars scrolling icon -->
-            <script type="text/javascript">
-                $(document).ready(function() {
-                                        
-                    $().UItoTop({ easingType: 'easeOutQuart' });
-                                        
-                    });
-            </script>
-            <!-- start-smoth-scrolling -->
-            <script type="text/javascript" src="js/move-top.js"></script>
-            <script type="text/javascript" src="js/easing.js"></script>
-            <script type="text/javascript">
-                jQuery(document).ready(function($) {
-                    $(".scroll").click(function(event){     
-                        event.preventDefault();
-                        $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
-                    });
-                });
-            </script>
+<script type="text/javascript">
+    $(document).ready(function() {
+                            
+        $().UItoTop({ easingType: 'easeOutQuart' });
+                            
+        });
+</script>
+<!-- start-smoth-scrolling -->
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){     
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
 
-            <script>
-                function gotomap()
-                {
-                     location.href = "www.yoursite.com";
-                } 
-            </script>
+<script>
+    function gotomap()
+    {
+         location.href = "www.yoursite.com";
+    } 
+</script>
+<script src="template2/vendor/jquery/jquery.min.js"></script>
+<script src="template2/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Core plugin JavaScript-->
+<script src="template2/vendor/jquery-easing/jquery.easing.min.js"></script>
+<!-- Page level plugin JavaScript-->
+<script src="template2/vendor/chart.js/Chart.min.js"></script>
+<script src="template2/vendor/datatables/jquery.dataTables.js"></script>
+<script src="template2/vendor/datatables/dataTables.bootstrap4.js"></script>
+<!-- Custom scripts for all pages-->
+<script src="template2/js/sb-admin.min.js"></script>
+<!-- Custom scripts for this page-->
+<script src="template2/js/sb-admin-datatables.min.js"></script>
+<script src="template2/js/sb-admin-charts.min.js"></script>
+<script src="https://maps.google.com/maps/api/js?sensor=true"></script>
+@yield('script')
+
 </body>
 <!-- //body -->
 </html>

@@ -6,9 +6,14 @@
 
 @section('content')
 <div class="container" style="margin-top: 18vh;">
-    <h3 class="text-center"><span style="font-weight: bold;"> Kota/Kab </span>Kediri
-        <span style="font-weight: bold;"> Kec </span>Sukolilo</h3>
-    <h4 class="text-center"><span style="font-weight: bold;"> Tanggal </span>18 Januari 2018</h4>
+    <div class="col-sm-8 col-sm-offset-2">
+        <canvas id="densityChart" width="600" height="400"></canvas>
+    </div>
+    <div class="col-sm-12" id="judul">
+        <h3 class="text-center"><span style="font-weight: bold;"> Kota/Kab </span>Kediri
+            <span style="font-weight: bold;"> Kec </span>Sukolilo</h3>
+        <h4 class="text-center"><span style="font-weight: bold;"> Tanggal </span>18 Januari 2018</h4>
+    </div>
     <div class="row" style="margin-top: 5vh;">
         <div class='col-sm-3'>
             <label>Tanggal</label>
@@ -118,7 +123,7 @@
                                     <p class="para1">Nomor HP : {{$datas->noTelp}}</p>
                                     <p class="para1">Tanggal : {{$datas->created_at->format('M d,Y h:i a')}}</p>
                                     <p class="para1"><form action="{{URL::to('https://www.google.co.id/maps/place/'.$datas->lat.",".$datas->lon)}}">
-                                        <button class="btn btn-primary">Tampilkan Map&nbsp;<span class="fa fa-map fa-2x"></span></button>
+                                        <button class="btn btn-primary">Tampilkan Map&nbsp;<span class="fa fa-map fa-1x"></span></button>
                                     </form></p>
                                 </div>
                             </div>
@@ -136,4 +141,23 @@
 @stop
 
 @section('script')
+<script type="text/javascript">
+    var densityCanvas = document.getElementById("densityChart");
+
+    Chart.defaults.global.defaultFontFamily = "Lato";
+    Chart.defaults.global.defaultFontSize = 18;
+
+    var densityData = {
+      label: 'Hasil Pelaporan',
+      data: [5427, 5243, 5514, 3933, 1326, 687, 1271, 1638]
+    };
+
+    var barChart = new Chart(densityCanvas, {
+      type: 'bar',
+      data: {
+        labels: ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"],
+        datasets: [densityData]
+      }
+    });
+</script>
 @stop

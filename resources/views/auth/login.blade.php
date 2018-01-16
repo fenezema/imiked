@@ -42,7 +42,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- body -->
 <body >
-
 <div class="container-fluid" style="background-image: url(template/images/bb.jpg);">
     <div id="loginbox" style="margin-top:20vh; margin-bottom: 30vh;" class="mainbox col-md-4 col-md-offset-4 col-sm-4 col-sm-offset-2">
     <div class="text-center">
