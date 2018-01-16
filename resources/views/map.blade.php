@@ -79,7 +79,13 @@
             infowindow.open(map, marker);
 
             var alamat_=results[0].formatted_address;
+            var alamat__ = alamat_.split(',');
+            var panjang_kotah=alamat__.length;
+            var kecah=alamat__[panjang_kotah-4];
+            var kotah=alamat__[panjang_kotah-3];
             $('#lokasi').val(alamat_);
+            $('kotah').val(kotah);
+            $('kecah').val(kecah);
             $('#lat').val(lati);
             $('#lon').val(longi);
             $('#lokasi2').empty();

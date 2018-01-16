@@ -20,8 +20,10 @@ class CreateDataPelaporansTable extends Migration
             $table->string('lat')->nullable();
             $table->string('lon')->nullable();
             $table->string('lokasi')->nullable();
+            $table->string('kot');
+            $table->string('kec');
             $table->string('ketlok')->nullable();
-            $table->string('foto')->nullable();;
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

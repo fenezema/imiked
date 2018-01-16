@@ -75,6 +75,8 @@
                                                 <input type="hidden" id="lat" name="lat" placeholder="Lokasi">
                                                 <input type="hidden" id="lon" name="lon" placeholder="Lokasi">
                                                 <input type="hidden" id="lokasi" name="lokasi" placeholder="Lokasi">
+                                                <input type="hidden" id="kotah" name="kot" placeholder="Lokasi">
+                                                <input type="hidden" id="kecah" name="kec" placeholder="Lokasi">
                                                 <div id="ketlokasi">
                                                     <input type="text" id="tel" class="ketlok_" name="ketlok"  placeholder="Detail lokasi" required="required" />
                                                 </div>
