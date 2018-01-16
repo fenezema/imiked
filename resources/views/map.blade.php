@@ -84,8 +84,8 @@
             var kecah=alamat__[panjang_kotah-4];
             var kotah=alamat__[panjang_kotah-3];
             $('#lokasi').val(alamat_);
-            $('kotah').val(kotah);
-            $('kecah').val(kecah);
+            $('#kotah').val(kotah);
+            $('#kecah').val(kecah);
             $('#lat').val(lati);
             $('#lon').val(longi);
             $('#lokasi2').empty();
