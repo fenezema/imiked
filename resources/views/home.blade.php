@@ -13,7 +13,18 @@
     </div>
     <div class="row" style="margin-top: 5vh;">
         <div class='col-sm-3'>
-            <label>Tanggal</label>
+            <label>Tanggal Awal</label>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker1'>
+                    <input type='date' class="form-control" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class='col-sm-3'>
+            <label>Tanggal Akhir</label>
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker1'>
                     <input type='date' class="form-control" />
