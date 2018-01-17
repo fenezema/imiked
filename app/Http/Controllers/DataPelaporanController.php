@@ -9,6 +9,8 @@ use App\User;
 use Mapper;
 use Image;
 use File;
+use DB;
+use Response;
 class DataPelaporanController extends Controller
 {
     /**
@@ -16,9 +18,14 @@ class DataPelaporanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function getByFilter(Request $req, $kota, $kecamatan)
+    public function getByFilter(Request $req,$kota)
     {
-
+        if($kota==="tampilkan")
+            $query="select kot, count(*) as jumlah from data_pelaporans s group by s.kot";    
+        else
+            $query="select kec, count(*) as jumlah from data_pelaporans s where kot=".'"'.$kota.'"'." group by s.kec";
+        $stat = DB::select($query);
+        return Response::json($stat);
     }
     public function index()
     {

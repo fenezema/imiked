@@ -26,22 +26,17 @@
         <div class="col-sm-3">
             <label>Kota/Kab</label>
             <div class="form-group">
-                <select class="form-control" data-live-search="true" >
+                <select id="kota_filter" class="form-control" data-live-search="true" >
+                    <option>#</option>
+                    <option value="tampilkan">Tampilkan Semua</option>
                     <option>Kediri</option>
-                    <option>Jombang</option>
-                    <option>Jakarta</option>
+                    <option>Kabupaten Jombang</option>
+                    <option>Kabupaten Nganjuk</option>
                 </select>
             </div>
         </div>
         <div class="col-sm-3">
-            <label>Kecamatan</label>
-            <div class="form-group">
-                <select class="form-control" data-live-search="true" >
-                    <option>Kediri</option>
-                    <option>Jombang</option>
-                    <option>Jakarta</option>
-                </select>
-            </div>
+            
         </div>
         <div class="col-sm-3">
             <label style="color:transparent;">-</label>
@@ -57,7 +52,7 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-sm-8 col-sm-offset-2">
+        <div id="results-graph" class="col-sm-8 col-sm-offset-2">
             <canvas id="densityChart" width="600" height="400"></canvas>
         </div>
 
@@ -145,31 +140,98 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){
+        var nama=[];
+        var data2=[];
+        var densityData=undefined;
+        var barChart=undefined;
         $('#submit_filter').click(function(){
-            $.get('')
-            var densityCanvas = document.getElementById("densityChart");
+            densityData=undefined;
+            barChart=undefined;
+            // var filt = $('#kota_filter').val();
+            // console.log(filt);
+            // $.get('statistic/kota',function(stat){
+            //     var panjang=stat.length;
+            //     for(var i=0;i<panjang;i+=1){
+            //         nama.push(stat[i].kec);
+            //         data2.push(stat[i].jumlah);
+            //     }
+            //     console.log(stat);
+            //     console.log(nama);
+            //     console.log(data2);
+            // });
+            $('#densityChart').remove();
+            $('#results-graph').append('<canvas id="densityChart" width="600" height="400"></canvas>')
+            var densityCanvas = $('#densityChart');
 
             Chart.defaults.global.defaultFontFamily = "Lato";
             Chart.defaults.global.defaultFontSize = 18;
+            
+                // var nama=[];
+                // var data2=[];
+                // var panjang=data.length;
+                // for(var i=0;i<panjang;i+=1){
+                //     nama.push(data[i].kot);
+                //     data2.push(data[i].jumlah);
+                // }
+            // nama = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
+            // data2 = [5427, 5243, 5514, 3933, 1326, 687, 1271, 1638];
 
-            var nama = ["Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune"];
-
-            var data2 = [5427, 5243, 5514, 3933, 1326, 687, 1271, 1638];
-
-            var densityData = {
-              label: 'Hasil Pelaporan',
-              data: data2,
-              backgroundColor: 'rgba(0, 99, 132, 0.6)',
-              borderColor: 'rgba(0, 99, 132, 1)'
+            densityData = {
+                label: 'Hasil Pelaporan',
+                data: data2,
+                backgroundColor: 'rgba(0, 99, 132, 0.6)',
+                borderColor: 'rgba(0, 99, 132, 1)'
             };
 
-            var barChart = new Chart(densityCanvas, {
-              type: 'bar',
-              data: {
-                labels: nama,
-                datasets: [densityData]
-              }
-            });
+            barChart = new Chart(densityCanvas, {
+                type: 'bar',
+                data: {
+                    labels: nama,
+                    datasets: [densityData]
+                }
+            });    
+            nama=[];
+            data2=[];
+            console.log(nama);
+            console.log(data2);
+        });
+
+        $('#kota_filter').change(function(){
+            var kota_val=$('#kota_filter').val();
+            console.log(kota_val);
+            if(kota_val=="tampilkan"){
+                $.get('statistic/'+kota_val,function(stat){
+                    var panjang=stat.length;
+                    if(nama.length>0 && data2.length>0){
+                        nama=[];
+                        data2=[];
+                    }
+                    for(var i=0;i<panjang;i+=1){
+                        nama.push(stat[i].kot);
+                        data2.push(stat[i].jumlah);
+                    }
+                    console.log(stat);
+                    console.log(nama);
+                    console.log(data2);
+                });    
+            }
+            else{
+                $.get('statistic/'+kota_val,function(stat){
+                    var panjang=stat.length;
+                    if(nama.length>0 && data2.length>0){
+                        nama=[];
+                        data2=[];
+                    }
+                    for(var i=0;i<panjang;i+=1){
+                        nama.push(stat[i].kec);
+                        data2.push(stat[i].jumlah);
+                    }
+                    console.log(stat);
+                    console.log(nama);
+                    console.log(data2);
+                });
+            }
+                
         });
     });
     
