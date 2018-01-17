@@ -27,16 +27,13 @@
             <label>Kota/Kab</label>
             <div class="form-group">
                 <select id="kota_filter" class="form-control" data-live-search="true" >
-                    <option>#</option>
+                    <option selected disabled>Pilih</option>
                     <option value="tampilkan">Tampilkan Semua</option>
                     <option>Kediri</option>
                     <option>Kabupaten Jombang</option>
                     <option>Kabupaten Nganjuk</option>
                 </select>
             </div>
-        </div>
-        <div class="col-sm-3">
-            
         </div>
         <div class="col-sm-3">
             <label style="color:transparent;">-</label>
