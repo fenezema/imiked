@@ -37,9 +37,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     width: 100%; /* width of the spinner gif */
     height: 100%; /*hight of the spinner gif +2px to fix IE8 issue */
 }
+
 </style>
 </head>
-<body >
+<body>
 <header>
     <div class="container">
 
@@ -53,31 +54,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     @endif
                 </h1>
             </div>
+            
             <div class="w3layouts-login">
                  <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
 
-                                <ul class="dropdown-menu" role="menu">
-                                    @if(Auth::user()->role=="admin")
-                                    <li>
-                                        <a href="{{route('addUser')}}">Tambah User</a>
-                                    </li>
-                                    @endif
-                                    <li>
-                                        <a href="{{ route('logout') }}"
-                                            onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            Logout
-                                        </a>
+                    <ul class="dropdown-menu" role="menu">
+                        @if(Auth::user()->role=="admin")
+                        <li>
+                            <a href="{{route('addUser')}}">Tambah User</a>
+                        </li>
+                        @endif
+                        <li>
+                            <a href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                                Logout
+                            </a>
 
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            {{ csrf_field() }}
-                                        </form>
-                                    </li>
-                                </ul>
-                            </li>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+            </div> 
+
+            <div class="w3layouts-login">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle mr-lg-2" id="alertsDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fa fa-fw fa-bell"></i>
+                        <span class="d-lg-none">New
+                        <span class="badge badge-pill badge-warning">@yield('count')</span>
+                        </span>
+                        <span class="indicator text-warning d-none d-lg-block">
+                        <i class="fa fa-fw fa-circle"></i>
+                        </span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="alertsDropdown">
+                        <h6 class="dropdown-header">New Alerts:</h6>
+                        @yield('notif')
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item small" href="#">View all alerts</a>
+                    </div>
+                </li>
             </div> 
           <!-- <div class="w3layouts-login">
                 <a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>Login/Register</a>

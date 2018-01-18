@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\DataPelaporan;
+use DB;
 
 class HomeController extends Controller
 {
@@ -25,6 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         $data=DataPelaporan::orderBy('created_at','desc')->get();
-        return view('home',compact('data'));
+        $query="select * from data_pelaporans where status=0";
+        $stat = DB::select($query);
+        return view('home',compact('data','stat'));
     }
 }

@@ -20,10 +20,14 @@ class DataPelaporanController extends Controller
      */
     public function getByFilter(Request $req,$kota)
     {
-        if($kota==="tampilkan")
+        if($kota==="tampilkan"){
             $query="select kot, count(*) as jumlah from data_pelaporans s group by s.kot";    
-        else
-            $query="select kec, count(*) as jumlah from data_pelaporans s where kot=".'"'.$kota.'"'." group by s.kec";
+        }
+        else{
+           $query="select kec, count(*) as jumlah from data_pelaporans s where kot=".'"'.$kota.'"'." group by s.kec";
+        }
+
+
         $stat = DB::select($query);
         return Response::json($stat);
     }
@@ -62,8 +66,11 @@ class DataPelaporanController extends Controller
             'password' => bcrypt($request->password),
         ]);
         $data=DataPelaporan::orderBy('created_at','desc')->get();
-        return view('home',compact('data'));
+        $query="select * from data_pelaporans where status=0";
+        $stat = DB::select($query);
+        return view('home',compact('data','stat'));
     }
+
     public function store(Request $request)
     {
         if($request->hasFile('foto')){
@@ -74,6 +81,7 @@ class DataPelaporanController extends Controller
             $filename="None";
         }
         
+        $ss = 0;
 
         $status=DataPelaporan::create([
                 'keterangan'=>$request->keterangan,
@@ -85,6 +93,7 @@ class DataPelaporanController extends Controller
                 'ketlok'=>$request->ketlok,
                 'noTelp'=>$request->noTelp,
                 'foto'=>$filename,
+                'status' => $ss,
             ]);
         // // The message
         // $message = "Do not reply.\r\nPELAPORAN BARU DITERIMA DARI ".$request->noTelp;
@@ -136,9 +145,14 @@ class DataPelaporanController extends Controller
      * @param  \App\DataPelaporan  $dataPelaporan
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, DataPelaporan $dataPelaporan)
+    public function update(Request $request, $id)
     {
-        //
+        $ss = 1;
+        DataPelaporan::where('id',$id)->update([
+            'status' => $ss,
+        ]);
+        
+        return redirect()->route('home');
     }
 
     /**

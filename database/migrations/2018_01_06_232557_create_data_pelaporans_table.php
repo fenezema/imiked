@@ -24,6 +24,7 @@ class CreateDataPelaporansTable extends Migration
             $table->string('kec');
             $table->string('ketlok')->nullable();
             $table->string('foto')->nullable();
+            $table->integer('status');
             $table->timestamps();
         });
     }
