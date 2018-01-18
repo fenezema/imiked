@@ -171,9 +171,9 @@
                                 <form action="{{ URL::to('/lapor/'.$datas->id) }}" method="post">
                                     {{csrf_field()}}
                                     @if($datas->status == 0)
-                                        <button type="submit" class="btn btn-warning">Unread&nbsp;<span class="fa fa-eye fa-1x"></span></button>
+                                        <button type="submit" class="btn btn-warning">Konfirmasi&nbsp;<span class="fa fa-eye fa-1x"></span></button>
                                     @else
-                                        <button type="submit" class="btn btn-warning" disabled>Read&nbsp;<span class="fa fa-eye fa-1x"></span></button>
+                                        <button type="submit" class="btn btn-warning" disabled>Konfirmasi&nbsp;<span class="fa fa-eye fa-1x"></span></button>
                                     @endif
                                 </form>
                                 <form action="{{URL::to('https://www.google.co.id/maps/place/'.$datas->lat.",".$datas->lon)}}">
@@ -227,19 +227,23 @@
             console.log(nama);
             console.log(data2);
         });
-        $('#pop_modal').click(function(){
+
+        $('#pop_modal').click(function()
+        {
             var id_modal = $(this).val();
             console.log(id_modal);
-            $.get('user/'+id_modal,function(reader){
+            $.get('user/'+id_modal,function(reader)
+            {
                 var panjang_reader = reader.length
                 var pembaca="";
                 for(var i=0;i<panjang_reader;i+=1)
                 {
-                    pembaca+=reader[i].id_user+" ";
+                    pembaca+=reader[i].nama_petugas+" ";
                 }
                 $('#dibaca_oleh').html(pembaca);
             });
         });
+
         $('#kota_filter').change(function(){
             var kota_val=$('#kota_filter').val();
             console.log(kota_val);

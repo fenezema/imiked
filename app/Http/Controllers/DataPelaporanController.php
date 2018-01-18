@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataPelaporan;
+use App\transaksi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\User;
@@ -11,6 +12,8 @@ use Image;
 use File;
 use DB;
 use Response;
+use Auth;
+
 class DataPelaporanController extends Controller
 {
     /**
@@ -147,6 +150,14 @@ class DataPelaporanController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $user = User::findorfail(Auth::user()->id);
+        $user = $user['name'];
+
+        transaksi::create([
+            'nama_petugas' => $user,
+            'id_laporan' => $id 
+        ]);
+
         $ss = 1;
         DataPelaporan::where('id',$id)->update([
             'status' => $ss,
@@ -166,5 +177,11 @@ class DataPelaporanController extends Controller
         $del=DataPelaporan::findorfail($id);
         $del->delete();
         return redirect(route('home'))->with('delsuccess',trans('Laporan telah dihapus'));
+    }
+
+    public function getname($id_modal)
+    {
+        $query = transaksi::where('id_laporan',$id_modal)->get();
+        return Response::json($query);
     }
 }

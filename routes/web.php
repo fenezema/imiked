@@ -23,6 +23,7 @@ Route::get('/add', 'DataPelaporanController@adduser')->name('addUser')->middlewa
 Route::post('/add', 'DataPelaporanController@storeuser')->name('addUser.submit')->middleware('auth');
 Route::get('/statistic/{kota}','DataPelaporanController@getByFilter')->middleware('auth');
 Route::get('/home/{id}', 'DataPelaporanController@destroy')->middleware('auth');
+Route::get('/user/{id_modal}', 'DataPelaporanController@getname')->middleware('auth');
 
 Route::get('/ha', function () {
     return view('view');
