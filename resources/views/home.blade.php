@@ -42,7 +42,7 @@
                 <div class='input-group date' id='datetimepicker1'>
                     <input type='date' class="form-control" />
                     <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
+                        <span class="fa fa-calendar"></span>
                     </span>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                 <div class='input-group date' id='datetimepicker1'>
                     <input type='date' class="form-control" />
                     <span class="input-group-addon">
-                        <span class="glyphicon glyphicon-calendar"></span>
+                        <span class="fa fa-calendar"></span>
                     </span>
                 </div>
             </div>
@@ -130,9 +130,11 @@
                 <td>{{$datas->keterangan}}</td>
                 <td>
                     @if($datas->status == 0)
-                        <button id="pop_modal" class="btn btn-warning btn-sm" value="{{$datas->id}}" data-toggle="modal" data-target="#{{$datas->id}}"><span class="fa fa-eye"></span>&nbsp;Unread</button>
+                        <button id="pop_modal" class="hehe btn btn-warning btn-sm" value="{{$datas->id}}" data-toggle="modal" data-target="#{{$datas->id}}"><span class="fa fa-eye-slash"></span>&nbsp;Unread</button>
+                        <input type="hidden" id="cek_reader" value="{{$datas->id}}">
                     @else
-                        <button id="pop_modal" class="btn btn-success btn-sm" value="{{$datas->id}}" data-toggle="modal" data-target="#{{$datas->id}}"><span class="fa fa-eye"></span>&nbsp;Read</button>
+                        <button id="pop_modal" class="hehe btn btn-success btn-sm" value="{{$datas->id}}" data-toggle="modal" data-target="#{{$datas->id}}"><span class="fa fa-eye"></span>&nbsp;Read</button>
+                        <input type="hidden" id="cek_reader" value="{{$datas->id}}">
                     @endif
                 </td>
                 @if(Auth::user()->role=="admin")
@@ -176,7 +178,7 @@
                                 <p>{{$datas->lokasi}}</p>
                                 <p>Detail lokasi : {{$datas->ketlok}}</p>
                                 <p>Dikonfirmasi oleh :</p>
-                                <p id="dibaca_oleh"></p>
+                                <p class="dibaca_oleh"></p>
                                 <div class="text-right">
                                     <form action="{{ URL::to('/lapor/'.$datas->id) }}" method="post">
                                         {{csrf_field()}}
@@ -192,7 +194,7 @@
                                 <form action="{{URL::to('https://www.google.co.id/maps/place/'.$datas->lat.",".$datas->lon)}}">
                                     <button class="btn btn-primary"><span class="fa fa-map-o fa-1x"></span>&nbsp;Tampilkan Map</button>
                                 </form>
-                                <a class="btn btn-primary" target="_blank" href="{{URL::to('/pdf/'.$datas->id)}}"><i class="fa fa-clone fa-1x"></i> PDF</a>
+                                <a class="btn btn-primary" target="_blank" href="{{URL::to('/pdf/'.$datas->id)}}"><i class="fa-file-pdf-o fa-1x"></i> PDF</a>
                             </div>
                         </div>
                     </div>
@@ -242,7 +244,7 @@
             console.log(data2);
         });
 
-        $('#pop_modal').click(function()
+        $('.hehe').click(function()
         {
             var id_modal = $(this).val();
             console.log(id_modal);
@@ -254,7 +256,7 @@
                 {
                     pembaca+=reader[i].nama_petugas+" ";
                 }
-                $('#dibaca_oleh').html(pembaca);
+                $('.dibaca_oleh').html(pembaca);
             });
         });
 
