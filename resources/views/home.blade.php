@@ -191,10 +191,9 @@
                                 </div>
                             </div>
                             <div class="modal-footer">
-                                <form action="{{URL::to('https://www.google.co.id/maps/place/'.$datas->lat.",".$datas->lon)}}">
-                                    <button class="btn btn-primary"><span class="fa fa-map-o fa-1x"></span>&nbsp;Tampilkan Map</button>
-                                </form>
-                                <a class="btn btn-primary" target="_blank" href="{{URL::to('/pdf/'.$datas->id)}}"><i class="fa-file-pdf-o fa-1x"></i> PDF</a>
+                                <a class="btn btn-primary" target="_blank" href="{{URL::to('https://www.google.co.id/maps/place/'.$datas->lat.",".$datas->lon)}}"><i class="fa fa-map-o fa-1x"></i> Tampilkan Map</a>
+
+                                <a class="btn btn-primary" target="_blank" href="{{URL::to('/pdf/'.$datas->id)}}"><i class="fa fa-clone fa-1x"></i> PDF</a>
                             </div>
                         </div>
                     </div>
