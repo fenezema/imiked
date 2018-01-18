@@ -25,6 +25,7 @@ Route::get('/statistic/{kota}','DataPelaporanController@getByFilter')->middlewar
 Route::get('/home/{id}', 'DataPelaporanController@destroy')->middleware('auth');
 Route::get('/user/{id_modal}', 'DataPelaporanController@getname')->middleware('auth');
 Route::get('/unread', 'DataPelaporanController@unread')->middleware('auth');
+Route::get('/pdf/{id}', 'DataPelaporanController@pdf')->middleware('auth');
 
 Route::get('/ha', function () {
     return view('view');

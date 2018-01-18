@@ -177,19 +177,22 @@
                                 <p>Detail lokasi : {{$datas->ketlok}}</p>
                                 <p>Dikonfirmasi oleh :</p>
                                 <p id="dibaca_oleh"></p>
+                                <div class="text-right">
+                                    <form action="{{ URL::to('/lapor/'.$datas->id) }}" method="post">
+                                        {{csrf_field()}}
+                                        @if($datas->status == 0)
+                                            <button type="submit" class="btn btn-warning"><span class="fa fa-close fa-1x"></span>&nbsp;Konfirmasi</button>
+                                        @else
+                                            <button type="submit" class="btn btn-success" disabled><span class="fa fa-check fa-1x"></span>&nbsp;Konfirmasi</button>
+                                        @endif
+                                    </form>
+                                </div>
                             </div>
                             <div class="modal-footer">
-                                <form action="{{ URL::to('/lapor/'.$datas->id) }}" method="post">
-                                    {{csrf_field()}}
-                                    @if($datas->status == 0)
-                                        <button type="submit" class="btn btn-primary">Konfirmasi&nbsp;<span class="fa fa-eye fa-1x"></span></button>
-                                    @else
-                                        <button type="submit" class="btn btn-primary" disabled>Konfirmasi&nbsp;<span class="fa fa-eye fa-1x"></span></button>
-                                    @endif
-                                </form>
                                 <form action="{{URL::to('https://www.google.co.id/maps/place/'.$datas->lat.",".$datas->lon)}}">
-                                    <button class="btn btn-primary">Tampilkan Map&nbsp;<span class="fa fa-map fa-1x"></span></button>
+                                    <button class="btn btn-primary"><span class="fa fa-map-o fa-1x"></span>&nbsp;Tampilkan Map</button>
                                 </form>
+                                <a class="btn btn-primary" target="_blank" href="{{URL::to('/pdf/'.$datas->id)}}"><i class="fa fa-clone fa-1x"></i> PDF</a>
                             </div>
                         </div>
                     </div>

@@ -205,4 +205,33 @@ class DataPelaporanController extends Controller
         $query = transaksi::where('id_laporan',$id_modal)->get();
         return Response::json($query);
     }
+
+    public function pdf($id)
+    {
+        $pdf = new \fpdf\FPDF();
+        $pdf->AddPage();
+        $pdf->SetFont('Arial','B',16,0,0);
+
+        $data1 = DataPelaporan::where('id',$id)->get();
+        $data2 = transaksi::where('id_laporan',$id)->get();
+        foreach ($data2 as $key)
+        {
+            $key = $key->nama_petugas;
+        }
+
+        foreach ($data1 as $n) 
+        {
+            $pdf->Image(asset('/uploads/resources/'.$n->foto),55,30,90,60);
+            $pdf->Cell(40,90,'',0,1);
+            $pdf->Cell(40,10,'Tanggal : '.$n->created_at,0,1);
+            $pdf->Cell(40,10,'Nomor HP : '.$n->noTelp,0,1);
+            $pdf->Cell(40,10,'Petugas : '.$key,0,1);
+            $pdf->SetFont('Arial','B',11,0,0);
+            $pdf->Cell(40,10,'Keterangan : '.$n->keterangan,0,1);
+            $pdf->Cell(40,10,'Lokasi : '.$n->lokasi,0,1);
+            $pdf->Cell(40,10,'Detail Lokasi : '.$n->ketlok,0,1);
+        }
+        $pdf->Output();
+        die;
+    }
 }
