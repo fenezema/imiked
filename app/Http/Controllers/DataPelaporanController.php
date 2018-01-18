@@ -141,6 +141,15 @@ class DataPelaporanController extends Controller
         //
     }
 
+    public function unread()
+    {
+        $data=DataPelaporan::where('status',0)->orderBy('created_at','desc')->get();
+        $query="select * from data_pelaporans where status=0";
+        $stat = DB::select($query);
+        //$data = DB::select($query);
+        return view('home',compact('data','stat'));
+    }
+
     /**
      * Update the specified resource in storage.
      *

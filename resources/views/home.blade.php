@@ -13,6 +13,7 @@
 @stop
 
 @section('notif')
+    <?php $ii=0; ?>
     @foreach($stat as $n)
         <div class="dropdown-divider"></div>
         <a class="dropdown-item" href="#">
@@ -23,7 +24,13 @@
             <span class="small float-right text-muted">{{$n->created_at}}</span>
             <div class="dropdown-message small">{{$n->keterangan}}</div>
         </a>
+        @if($ii==2)
+           @break
+        @endif
+        <?php $ii++; ?>
     @endforeach
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item small" href="{{URL::to('/unread')}}">Lihat semua laporan</a>
 @stop
 
 @section('content')

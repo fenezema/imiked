@@ -123,8 +123,6 @@
           <div class="dropdown-menu" aria-labelledby="messagesDropdown">
             <h6 class="dropdown-header">Laporan baru:</h6>
             @yield('notif')
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item small" href="#">Lihat semua laporan</a>
           </div>
         </li>
 
