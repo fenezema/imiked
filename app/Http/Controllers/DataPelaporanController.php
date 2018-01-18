@@ -24,7 +24,10 @@ class DataPelaporanController extends Controller
     public function getByFilter(Request $req,$kota)
     {
         if($kota==="tampilkan"){
-            $query="select kot, count(*) as jumlah from data_pelaporans s group by s.kot";    
+            $query="select kot, count(*) as jumlah from data_pelaporans s group by s.kot
+            union
+            select wilayah, 0 from wilayah where wilayah not in (
+            select kot from data_pelaporans s group by s.kot)";
         }
         else{
             $cari_kota="select id from wilayah where wilayah=".'"'.$kota.'"';
