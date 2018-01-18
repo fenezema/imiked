@@ -1,14 +1,16 @@
-@extends('master.masterlaporan')
-@section('title') Pelaporan
+@extends('base_.base')
+@section('title')
+    Pelaporan Imigrasi
 @stop
 @section('head')
 @stop
 
+
 @section('content')
-<div class="support w3layouts-content" style="margin-top: 17vh;">
-    <div class="container">
-        <h3 class="w3-head">Tambah Admin Baru</h3>
-        <div class="col-md-8 w3ls-supportform">
+<div class="container">
+    <h3 class="w3-head">Tambah Admin Baru</h3>
+    <div class="row">
+        <div class="col-sm-8">
             <form action="{{route('addUser.submit')}}" method="POST" id="contactForm">
             {{csrf_field()}}
                 <div class="control-group form-group">
@@ -46,15 +48,13 @@
                 <div class="clearfix"></div>    
             </form>
         </div>
-
-        <div class="col-md-4 bann-info1">
-            <i class="train-icon fa fa-user-circle-o"></i>
+        <div class="col-sm-1"></div>
+        <div class="col-sm-2" style="margin-top: 20vh;">
+            <i class="fa fa-user-circle-o fa-5x"></i>
         </div>
-        <div class="clearfix"></div>
     </div>
 </div>
 @stop
 
 @section('script')
-    
 @stop

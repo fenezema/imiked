@@ -27,7 +27,16 @@ class DataPelaporanController extends Controller
             $query="select kot, count(*) as jumlah from data_pelaporans s group by s.kot";    
         }
         else{
-           $query="select kec, count(*) as jumlah from data_pelaporans s where kot=".'"'.$kota.'"'." group by s.kec";
+            $cari_kota="select id from wilayah where wilayah=".'"'.$kota.'"';
+            $id_kota=DB::select($cari_kota);
+            foreach ($id_kota as $key) {
+                $id_kota=$key->id;
+            }
+
+            $query="select kec, count(*) as jumlah from data_pelaporans s where s.kot=".'"'.$kota.'"'." group by s.kec
+            union
+            select kecamatan, 0 from kecamatan where fk_wilayah=".'"'.$id_kota.'"'." and kecamatan not in (
+            select kec from data_pelaporans s where s.kot=".'"'.$kota.'"'." group by s.kec)";
         }
 
 

@@ -65,6 +65,7 @@
                     <option selected disabled>Pilih Kota</option>
                     <option value="tampilkan">Tampilkan Semua</option>
                     <option>Kediri</option>
+                    <option>Kota Kediri</option>
                     <option>Kabupaten Jombang</option>
                     <option>Kabupaten Nganjuk</option>
                 </select>

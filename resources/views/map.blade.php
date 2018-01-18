@@ -83,6 +83,11 @@
             var panjang_kotah=alamat__.length;
             var kecah=alamat__[panjang_kotah-4];
             var kotah=alamat__[panjang_kotah-3];
+            if(kecah===" Kec. Kota Kediri" || kecah===" Mojoroto" || kecah===" Pesantren"){
+              kotah="Kota Kediri";
+            }
+            console.log(kecah);
+            console.log(kotah);
             $('#lokasi').val(alamat_);
             $('#kotah').val(kotah);
             $('#kecah').val(kecah);
