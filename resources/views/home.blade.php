@@ -55,7 +55,7 @@
             <label>Kota/Kab</label>
             <div class="form-group">
                 <select id="kota_filter" class="form-control" data-live-search="true" >
-                    <option selected disabled>Pilih</option>
+                    <option selected disabled>Pilih Kota</option>
                     <option value="tampilkan">Tampilkan Semua</option>
                     <option>Kediri</option>
                     <option>Kabupaten Jombang</option>
@@ -80,6 +80,8 @@
         </div>
     </div>
 </div>
+
+
 
 <div class="container-fluid">
     @if(session('delsuccess'))
@@ -110,9 +112,10 @@
               </tr>
             </thead>
             <tbody>
-            @foreach($data as $datas)
+            @for($i=0;$i< Count($data);$i++)
+                <?php $datas = $data[$i]; ?>
               <tr>
-                <td>1</td>
+                <td>{{$i+1}}</td>
                 <td>{{$datas->created_at->format('M d,Y h:i a')}}</td>
                 <td>{{$datas->noTelp}}</td>
                 <td>{{$datas->lokasi}}</td>
@@ -163,17 +166,17 @@
                                 <p><span style="font-weight: bold;">Nomor HP :</span>{{$datas->noTelp}}</p>
                                 <p><span style="font-weight: bold;">Keterangan :</span>{{$datas->keterangan}}</p>
                                 <p>{{$datas->lokasi}}</p>
-                                <p>{{$datas->ketlok}}</p>
-                                <p>Dibaca oleh :</p>
+                                <p>Detail lokasi : {{$datas->ketlok}}</p>
+                                <p>Dikonfirmasi oleh :</p>
                                 <p id="dibaca_oleh"></p>
                             </div>
                             <div class="modal-footer">
                                 <form action="{{ URL::to('/lapor/'.$datas->id) }}" method="post">
                                     {{csrf_field()}}
                                     @if($datas->status == 0)
-                                        <button type="submit" class="btn btn-warning">Konfirmasi&nbsp;<span class="fa fa-eye fa-1x"></span></button>
+                                        <button type="submit" class="btn btn-primary">Konfirmasi&nbsp;<span class="fa fa-eye fa-1x"></span></button>
                                     @else
-                                        <button type="submit" class="btn btn-warning" disabled>Konfirmasi&nbsp;<span class="fa fa-eye fa-1x"></span></button>
+                                        <button type="submit" class="btn btn-primary" disabled>Konfirmasi&nbsp;<span class="fa fa-eye fa-1x"></span></button>
                                     @endif
                                 </form>
                                 <form action="{{URL::to('https://www.google.co.id/maps/place/'.$datas->lat.",".$datas->lon)}}">
@@ -183,7 +186,7 @@
                         </div>
                     </div>
                 </div>
-            @endforeach
+            @endfor
             </tbody>
           </table>
         </div>

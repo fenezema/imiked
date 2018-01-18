@@ -121,14 +121,8 @@
             </span>
           </a>
           <div class="dropdown-menu" aria-labelledby="messagesDropdown">
-            <h6 class="dropdown-header">New Messages:</h6>
+            <h6 class="dropdown-header">Laporan baru:</h6>
             @yield('notif')
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="#">
-              <strong>David Miller</strong>
-              <span class="small float-right text-muted">11:21 AM</span>
-              <div class="dropdown-message small">Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!</div>
-            </a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item small" href="#">Lihat semua laporan</a>
           </div>
@@ -143,7 +137,7 @@
             </span>
           </a>
           <div class="dropdown-menu" aria-labelledby="alertsDropdown">
-            <h6 class="dropdown-header">New Alerts:</h6>
+            <h6 class="dropdown-header">Option</h6>
             @if(Auth::user()->role=="admin")
             <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{route('addUser')}}">
