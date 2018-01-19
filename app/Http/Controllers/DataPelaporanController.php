@@ -184,7 +184,8 @@ class DataPelaporanController extends Controller
             'status' => $ss,
         ]);
         
-        return redirect()->route('home');
+        //return redirect()->route('home');
+        return Response::json($ss);
     }
 
     /**
@@ -204,6 +205,23 @@ class DataPelaporanController extends Controller
     {
         $query = transaksi::where('id_laporan',$id_modal)->get();
         return Response::json($query);
+    }
+    public function tayar($id_modal)
+    {
+        $user = User::findorfail(Auth::user()->id);
+        $user = $user['name'];
+
+        transaksi::create([
+            'nama_petugas' => $user,
+            'id_laporan' => $id_modal 
+        ]);
+
+        $ss = 1;
+        DataPelaporan::where('id',$id_modal)->update([
+            'status' => $ss,
+        ]);
+        
+        return Response::json($ss);
     }
 
     public function pdf($id)

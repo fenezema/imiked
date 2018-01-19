@@ -30,3 +30,5 @@ Route::get('/pdf/{id}', 'DataPelaporanController@pdf')->middleware('auth');
 Route::get('/ha', function () {
     return view('view');
 });
+
+Route::get('/tayar/{id_modal}','DataPelaporanController@tayar')->name('tayar');

@@ -128,7 +128,7 @@
                 <td>{{$datas->noTelp}}</td>
                 <td>{{$datas->lokasi}}</td>
                 <td>{{$datas->keterangan}}</td>
-                <td>
+                <td id="sutayar{{$datas->id}}">
                     @if($datas->status == 0)
                         <button id="pop_modal" class="hehe btn btn-warning btn-sm" value="{{$datas->id}}" data-toggle="modal" data-target="#{{$datas->id}}"><span class="fa fa-eye-slash"></span>&nbsp;Unread</button>
                         <input type="hidden" id="cek_reader" value="{{$datas->id}}">
@@ -242,9 +242,16 @@
             console.log(nama);
             console.log(data2);
         });
-
+        
         $('.hehe').click(function()
         {
+             var a = $(this).val();
+            console.log("tayar"+a)
+            $.get('tayar/'+a,function(tampan){
+                console.log(tampan);
+                $('#sutayar'+a).html("<button id=\"pop_modal\" class=\"hehe btn btn-success btn-sm\" value=\""+a+"\" data-toggle=\"modal\" data-target=\"#"+a+"\"><span class=\"fa fa-eye\"></span>&nbsp;Read</button>\
+                        <input type=\"hidden\" id=\"cek_reader\" value=\""+a+"\">");
+            })
             var id_modal = $(this).val();
             console.log(id_modal);
             $.get('user/'+id_modal,function(reader)
