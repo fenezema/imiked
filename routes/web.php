@@ -22,6 +22,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/add', 'DataPelaporanController@adduser')->name('addUser')->middleware('auth');
 Route::post('/add', 'DataPelaporanController@storeuser')->name('addUser.submit')->middleware('auth');
 Route::get('/statistic/{kota}','DataPelaporanController@getByFilter')->middleware('auth');
+Route::get('/statistic/{kota}/{tanggal_start}/{tanggal_stop}','DataPelaporanController@getByFilterDate')->middleware('auth');
 Route::get('/home/{id}', 'DataPelaporanController@destroy')->middleware('auth');
 Route::get('/user/{id_modal}', 'DataPelaporanController@getname')->middleware('auth');
 Route::get('/unread', 'DataPelaporanController@unread')->middleware('auth');
