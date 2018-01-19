@@ -38,8 +38,9 @@
                 <div class="control-group form-group">
                     <div class="controls">
                         <label class="inputLabel">Confirm Password:</label>
-                        <input type="password" class="form-control" name="phone" placeholder="Konfirmasi password" id="" name="password_confirmation" required="" data-validation-required-message="Masukan konfirmasi password" aria-invalid="false">
+                        <input type="password" class="form-control" name="phone" placeholder="Konfirmasi password" id="confirm_password" name="password_confirmation" required="" data-validation-required-message="Masukan konfirmasi password" aria-invalid="false">
                         <p class="help-block"></p>
+                        <span id='message'></span>
                     </div>
                 </div>
 
@@ -50,11 +51,29 @@
         </div>
         <div class="col-sm-1"></div>
         <div class="col-sm-2" style="margin-top: 20vh;">
-            <i class="fa fa-user-circle-o fa-5x"></i>
+            <i class="fa fa-user-circle-o fa-5x" style="font-size:150px;"></i>
         </div>
     </div>
 </div>
 @stop
 
 @section('script')
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#password, #confirm_password').on('keyup', function () {
+            if ($('#password').val() == $('#confirm_password').val() && $('#password').val() != "" && $('#confirm_password').val() != "")
+            {
+                $('#message').html('Cocok').css('color', 'green');
+            }
+            else if ($('#password').val() == "" &&  $('#confirm_password').val() == "") 
+            {
+                $('#message').html('').css('color', 'green');
+            }
+            else
+            {
+                $('#message').html('Konfirmasi password tidak cocok').css('color', 'red');
+            }
+        });
+    });
+</script>
 @stop

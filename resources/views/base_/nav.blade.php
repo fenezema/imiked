@@ -16,14 +16,14 @@
       <ul class="navbar-nav navbar-sidenav" id="exampleAccordion">
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="{{route('home')}}">
-            <i class="fa fa-window-maximize"></i>
+            <i class="fa fa-home"></i>
             <span class="nav-link-text">Home</span>
           </a>
         </li>
         @if(Auth::user()->role=="admin")
         <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Dashboard">
           <a class="nav-link" href="{{route('addUser')}}">
-            <i class="fa fa-fw fa-dashboard"></i>
+            <i class="fa fa-fw fa-user"></i>
             <span class="nav-link-text">Tambah Petugas</span>
           </a>
         </li>
@@ -35,13 +35,13 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
             <li>
-              <a href="navbar.html">Semua laporan</a>
+              <a href="">Semua laporan</a>
             </li>
             <li>
-              <a href="cards.html">Belum dibaca</a>
+              <a href="">Belum dibaca</a>
             </li>
             <li>
-              <a href="cards.html">Sudah dibaca</a>
+              <a href="">Sudah dibaca</a>
             </li>
           </ul>
         </li>
@@ -94,6 +94,13 @@
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 {{ csrf_field() }}
             </form>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <div class="row">
+            <div class="col-sm-1">
+              <div style="color:transparent;">aaaa</div>
+            </div>
           </div>
         </li>
       </ul>

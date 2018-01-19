@@ -19,9 +19,9 @@
         <a class="dropdown-item" href="#">
             <span class="text-success">
             <strong>
-            <i class="fa fa-long-arrow-up fa-fw"></i>{{$n->kot}}</strong>
+            <i class="fa fa-long-arrow-up fa-fw"></i>{{$n->noTelp}}</strong>
             </span>
-            <span class="small float-right text-muted">{{$n->created_at}}</span>
+            <span class="small float-right text-muted">{{$n->kot}}</span>
             <div class="dropdown-message small">{{$n->keterangan}}</div>
         </a>
         @if($ii==2)
@@ -88,8 +88,6 @@
         </div>
     </div>
 </div>
-
-
 
 <div class="container-fluid">
     @if(session('delsuccess'))
@@ -179,16 +177,6 @@
                                 <p>Detail lokasi : {{$datas->ketlok}}</p>
                                 <p>Dikonfirmasi oleh :</p>
                                 <p class="dibaca_oleh"></p>
-                                <div class="text-right">
-                                    <form action="{{ URL::to('/lapor/'.$datas->id) }}" method="post">
-                                        {{csrf_field()}}
-                                        @if($datas->status == 0)
-                                            <button type="submit" class="btn btn-warning"><span class="fa fa-close fa-1x"></span>&nbsp;Konfirmasi</button>
-                                        @else
-                                            <button type="submit" class="btn btn-success" disabled><span class="fa fa-check fa-1x"></span>&nbsp;Konfirmasi</button>
-                                        @endif
-                                    </form>
-                                </div>
                             </div>
                             <div class="modal-footer">
                                 <a class="btn btn-primary" target="_blank" href="{{URL::to('https://www.google.co.id/maps/place/'.$datas->lat.",".$datas->lon)}}"><i class="fa fa-map-o fa-1x"></i> Tampilkan Map</a>
@@ -226,12 +214,13 @@
             densityData = {
                 label: 'Hasil Pelaporan',
                 data: data2,
-                backgroundColor: 'rgba(0, 99, 132, 0.6)',
+                backgroundColor: 'rgba(66,139,202, 0.4)',
                 borderColor: 'rgba(0, 99, 132, 1)'
             };
 
             barChart = new Chart(densityCanvas, {
                 type: 'bar',
+                option: 'option',
                 data: {
                     labels: nama,
                     datasets: [densityData]
