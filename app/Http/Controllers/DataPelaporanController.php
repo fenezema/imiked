@@ -208,9 +208,21 @@ class DataPelaporanController extends Controller
     }
     public function tayar($id_modal)
     {
+        $flag=0;
         $user = User::findorfail(Auth::user()->id);
         $user = $user['name'];
 
+        $cek_dist=transaksi::where('nama_petugas',$user)->get();
+        foreach ($cek_dist as $key) {
+            if($key->nama_petugas===$user and $key->id_laporan==$id_modal){
+                $flag=1;
+            }
+        }
+        if ($flag==1)
+        {
+            $ss=1;
+            return Response::json($ss);
+        }
         transaksi::create([
             'nama_petugas' => $user,
             'id_laporan' => $id_modal 
