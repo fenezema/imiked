@@ -68,6 +68,7 @@
                     <option>Kota Kediri</option>
                     <option>Kabupaten Jombang</option>
                     <option>Kabupaten Nganjuk</option>
+                    <option>Lainnya</option>
                 </select>
             </div>
         </div>
@@ -245,7 +246,7 @@
         
         $('.hehe').click(function()
         {
-             var a = $(this).val();
+            var a = $(this).val();
             console.log("tayar"+a)
             $.get('tayar/'+a,function(tampan){
                 console.log(tampan);
@@ -262,8 +263,11 @@
                 {
                     pembaca+=reader[i].nama_petugas+" ";
                 }
-                $('.dibaca_oleh').html(pembaca);
+                $('.dibaca_oleh').empty();
+                $('.dibaca_oleh').append(pembaca);
             });
+            
+            
         });
 
         $('#kota_filter').change(function(){
