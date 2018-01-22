@@ -218,16 +218,36 @@
             densityData = {
                 label: 'Hasil Pelaporan',
                 data: data2,
-                backgroundColor: 'rgba(66,139,202, 0.4)',
-                borderColor: 'rgba(0, 99, 132, 1)'
+                 backgroundColor: [
+                    'rgba(0, 99, 132, 0.6)',
+                    'rgba(30, 99, 132, 0.6)',
+                    'rgba(60, 99, 132, 0.6)',
+                    'rgba(90, 99, 132, 0.6)',
+                    'rgba(120, 99, 132, 0.6)',
+                    'rgba(150, 99, 132, 0.6)',
+                    'rgba(180, 99, 132, 0.6)',
+                    'rgba(210, 99, 132, 0.6)',
+                    'rgba(240, 99, 132, 0.6)'
+                  ],
+                borderColor: [
+                    'rgba(0, 99, 132, 1)',
+                    'rgba(30, 99, 132, 1)',
+                    'rgba(60, 99, 132, 1)',
+                    'rgba(90, 99, 132, 1)',
+                    'rgba(120, 99, 132, 1)',
+                    'rgba(150, 99, 132, 1)',
+                    'rgba(180, 99, 132, 1)',
+                    'rgba(210, 99, 132, 1)',
+                    'rgba(240, 99, 132, 1)'
+                  ],
+                hoverBorderWidth: 100
             };
 
             barChart = new Chart(densityCanvas, {
-                type: 'bar',
-                option: 'option',
+                type: 'horizontalBar',
                 data: {
                     labels: nama,
-                    datasets: [densityData]
+                    datasets: [densityData],
                 }
             });    
             nama=[];
