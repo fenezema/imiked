@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="container">
-    <h3 class="w3-head">Tambah Admin Baru</h3>
+    <h3 class="w3-head">Tambah User Baru</h3>
     <div class="row">
         <div class="col-sm-8">
             <form action="{{route('addUser.submit')}}" method="POST" id="contactForm">
@@ -22,7 +22,7 @@
 
                 <div class="control-group form-group">
                     <div class="controls">
-                        <label class="inputLabel">Username:</label>
+                        <label class="inputLabel">NIP:</label>
                         <input type="text" class="form-control" placeholder="NIP" id="nip" name="nip" required data-validation-required-message="Tulis NIP anda">
                     </div>
                 </div>
