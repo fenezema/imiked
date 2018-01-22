@@ -40,7 +40,7 @@
             <label>Tanggal Awal</label>
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker1'>
-                    <input id="start_date" type='date' class="form-control" />
+                    <input type='date' class="form-control" />
                     <span class="input-group-addon">
                         <span class="fa fa-calendar"></span>
                     </span>
@@ -51,7 +51,7 @@
             <label>Tanggal Akhir</label>
             <div class="form-group">
                 <div class='input-group date' id='datetimepicker1'>
-                    <input id="stop_date" type='date' class="form-control" />
+                    <input type='date' class="form-control" />
                     <span class="input-group-addon">
                         <span class="fa fa-calendar"></span>
                     </span>
@@ -204,9 +204,6 @@
         var data2=[];
         var densityData=undefined;
         var barChart=undefined;
-        var tanggal_start="";
-        var tanggal_stop="";
-        var date_flag=0;
         $('#submit_filter').click(function(){
             $('#densityChart').remove();
             $('#results-graph').append('<canvas id="densityChart" width="600" height="400"></canvas>')
@@ -219,26 +216,13 @@
                 label: 'Hasil Pelaporan',
                 data: data2,
                  backgroundColor: [
-                    'rgba(0, 99, 132, 0.6)',
-                    'rgba(30, 99, 132, 0.6)',
-                    'rgba(60, 99, 132, 0.6)',
-                    'rgba(90, 99, 132, 0.6)',
-                    'rgba(120, 99, 132, 0.6)',
-                    'rgba(150, 99, 132, 0.6)',
-                    'rgba(180, 99, 132, 0.6)',
-                    'rgba(210, 99, 132, 0.6)',
-                    'rgba(240, 99, 132, 0.6)'
-                  ],
-                borderColor: [
-                    'rgba(0, 99, 132, 1)',
-                    'rgba(30, 99, 132, 1)',
-                    'rgba(60, 99, 132, 1)',
-                    'rgba(90, 99, 132, 1)',
-                    'rgba(120, 99, 132, 1)',
-                    'rgba(150, 99, 132, 1)',
-                    'rgba(180, 99, 132, 1)',
-                    'rgba(210, 99, 132, 1)',
-                    'rgba(240, 99, 132, 1)'
+                    'rgba(0, 0, 225, 0.8)',
+                    'rgba(0, 50, 225, 0.8)',
+                    'rgba(0, 100, 225, 0.6)',
+                    'rgba(0, 150, 225, 0.6)',
+                    'rgba(0, 200, 225, 0.6)',
+                    'rgba(50, 200, 225, 0.6)',
+                    'rgba(100, 200, 225, 0.6)'
                   ],
                 hoverBorderWidth: 100
             };
@@ -252,9 +236,6 @@
             });    
             nama=[];
             data2=[];
-            date_flag=0;
-            tanggal_start="";
-            tanggal_stop="";
             console.log(nama);
             console.log(data2);
         });
@@ -281,28 +262,12 @@
                 $('.dibaca_oleh').empty();
                 $('.dibaca_oleh').append(pembaca);
             });
-            
-            
-        });
-
-        $('#start_date').change(function(){
-            if(tanggal_stop!=""){
-                date_flag=1;
-            }
-            tanggal_start=$(this).val();
-        });
-        $('#stop_date').change(function(){
-           if(tanggal_start!=""){
-                date_flag=1;
-            }
-            tanggal_stop=$(this).val();
         });
 
         $('#kota_filter').change(function(){
             var kota_val=$('#kota_filter').val();
             console.log(kota_val);
-            if(kota_val=="tampilkan" && date_flag==0){
-                console.log("masuk if 1");
+            if(kota_val=="tampilkan"){
                 $.get('statistic/'+kota_val,function(stat){
                     var panjang=stat.length;
                     if(nama.length>0 && data2.length>0){
@@ -318,7 +283,7 @@
                     console.log(data2);
                 });    
             }
-            else if(kota_val!="tampilkan" && date_flag==0){
+            else{
                 $.get('statistic/'+kota_val,function(stat){
                     var panjang=stat.length;
                     if(nama.length>0 && data2.length>0){
@@ -334,39 +299,7 @@
                     console.log(data2);
                 });
             }
-            else if(kota_val=="tampilkan" && date_flag==1){
-                console.log("masuk if 3");
-                $.get('statistic/'+kota_val+"/"+tanggal_start+"/"+tanggal_stop,function(stat){
-                    var panjang=stat.length;
-                    if(nama.length>0 && data2.length>0){
-                        nama=[];
-                        data2=[];
-                    }
-                    for(var i=0;i<panjang;i+=1){
-                        nama.push(stat[i].kot);
-                        data2.push(stat[i].jumlah);
-                    }
-                    console.log(stat);
-                    console.log(nama);
-                    console.log(data2);
-                });   
-            }
-            else if(kota_val!="tampilkan" && date_flag==1){
-                $.get('statistic/'+kota_val+"/"+tanggal_start+"/"+tanggal_stop,function(stat){
-                    var panjang=stat.length;
-                    if(nama.length>0 && data2.length>0){
-                        nama=[];
-                        data2=[];
-                    }
-                    for(var i=0;i<panjang;i+=1){
-                        nama.push(stat[i].kec);
-                        data2.push(stat[i].jumlah);
-                    }
-                    console.log(stat);
-                    console.log(nama);
-                    console.log(data2);
-                });   
-            }
+                
         });
     });
 </script>

@@ -28,8 +28,8 @@ Route::get('/user/{id_modal}', 'DataPelaporanController@getname')->middleware('a
 Route::get('/unread', 'DataPelaporanController@unread')->middleware('auth');
 Route::get('/pdf/{id}', 'DataPelaporanController@pdf')->middleware('auth');
 
-Route::get('/ha', function () {
-    return view('view');
+Route::get('/dilapor', function () {
+    return view('landingpage');
 });
 
 Route::get('/tayar/{id_modal}','DataPelaporanController@tayar')->name('tayar');
