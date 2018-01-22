@@ -77,12 +77,12 @@
                                                 <input type="hidden" id="lokasi" name="lokasi" placeholder="Lokasi">
                                                 <input type="hidden" id="kotah" name="kot" placeholder="Lokasi">
                                                 <input type="hidden" id="kecah" name="kec" placeholder="Lokasi">
-                                                <div id="ketlokasi">
-                                                    <input type="text" id="tel" class="ketlok_" name="ketlok"  placeholder="Detail lokasi" required="required" />
-                                                </div>
                                                 <button type="button" id="button1" style="color: black; background-color: #FEE901; border-color: #FEE901;" class="btn btn-warning">
                                                     <h4>Cari lokasi &nbsp;<span class="glyphicon glyphicon-search"></span></h4>
                                                 </button>
+                                                <div id="ketlokasi">
+                                                    <input type="text" id="tel" class="ketlok_" name="ketlok"  placeholder="Detail lokasi" required="required" />
+                                                </div>
                                             </li>
                                             <li>
                                                 <h4><i class="fa fa-pencil-square" aria-hidden="true" style="color:#FEE901"></i>&nbsp;&nbsp;Keterangan</h4>
