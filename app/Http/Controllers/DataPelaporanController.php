@@ -53,7 +53,7 @@ class DataPelaporanController extends Controller
     }
     public function getByFilterDate($kota,$tanggal_start,$tanggal_stop){
         if($kota==="tampilkan"){
-            $query="select kot, count(*) as jumlah from data_pelaporans s where created_at >=".'"'.$tanggal_start.'"'." and created_at <=".'"'.$tanggal_stop.'"'." group by s.kot
+            $query="select kot, count(*) as jumlah from data_pelaporans s where date(created_at) >=".'"'.$tanggal_start.'"'." and date(created_at) <=".'"'.$tanggal_stop.'"'." group by s.kot
             union
             select wilayah, 0 from wilayah where wilayah not in (
             select kot from data_pelaporans s group by s.kot)";
@@ -65,7 +65,7 @@ class DataPelaporanController extends Controller
                 $id_kota=$key->id;
             }
 
-            $query="select kec, count(*) as jumlah from data_pelaporans s where created_at >=".'"'.$tanggal_start.'"'." and created_at <=".'"'.$tanggal_stop.'"'." and s.kot=".'"'.$kota.'"'." group by s.kec
+            $query="select kec, count(*) as jumlah from data_pelaporans s where date(created_at) >=".'"'.$tanggal_start.'"'." and date(created_at) <=".'"'.$tanggal_stop.'"'." and s.kot=".'"'.$kota.'"'." group by s.kec
             union
             select kecamatan, 0 from kecamatan where fk_wilayah=".'"'.$id_kota.'"'." and kecamatan not in (
             select kec from data_pelaporans s where s.kot=".'"'.$kota.'"'." group by s.kec)";
