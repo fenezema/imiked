@@ -21,6 +21,12 @@ class DataPelaporanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function n_notif(){
+        $query="select * from data_pelaporans where status=0";
+        $stat = DB::select($query);
+        $count=Count($stat);
+        return Response::json($count);
+    }
     public function getByFilter(Request $req,$kota)
     {
         if($kota==="tampilkan"){

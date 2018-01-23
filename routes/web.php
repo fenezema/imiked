@@ -27,6 +27,7 @@ Route::get('/home/{id}', 'DataPelaporanController@destroy')->middleware('auth');
 Route::get('/user/{id_modal}', 'DataPelaporanController@getname')->middleware('auth');
 Route::get('/unread', 'DataPelaporanController@unread')->middleware('auth');
 Route::get('/pdf/{id}', 'DataPelaporanController@pdf')->middleware('auth');
+Route::get('/n_notif','DataPelaporanController@n_notif')->middleware('auth');
 
 Route::get('/dilapor', function () {
     return view('landingpage');

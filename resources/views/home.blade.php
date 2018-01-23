@@ -200,6 +200,14 @@
 @section('script')
 <script type="text/javascript">
     $(document).ready(function(){
+        (function worker(){
+            $.get('n_notif',function(jumlah){
+                $('#n_notif').empty();
+                console.log(jumlah+"laporan yang ada");
+                $('#n_notif').text(jumlah+" Laporan");
+                setTimeout(worker,5000);
+            });
+        })();
         var nama=[];
         var data2=[];
         var densityData=undefined;

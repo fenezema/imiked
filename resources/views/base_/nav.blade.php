@@ -57,7 +57,7 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle mr-lg-2" id="messagesDropdown" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fa fa-fw fa-envelope"></i>
-              <span class="badge badge-pill badge-primary">@yield('count') Laporan</span>
+              <span id="n_notif" class="badge badge-pill badge-primary">@yield('count') Laporan</span>
             <span class="indicator text-primary d-none d-lg-block">
               <i class="fa fa-fw fa-circle"></i>
             </span>
