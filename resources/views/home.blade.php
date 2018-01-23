@@ -215,7 +215,7 @@
         var tanggal_start=""; 
         var tanggal_stop=""; 
         var date_flag=0;
-        $('#submit_filter').click(function(){
+        function gambar_map(){
             $('#densityChart').remove();
             $('#results-graph').append('<canvas id="densityChart" width="600" height="400"></canvas>')
             var densityCanvas = $('#densityChart');
@@ -252,6 +252,80 @@
             tanggal_stop=""; 
             console.log(nama);
             console.log(data2);
+        }
+        $('#submit_filter').click(function(){
+            var kota_val=$('#kota_filter').val();
+            console.log(kota_val);
+            if(kota_val=="tampilkan" && date_flag==0){
+                console.log("masuk if 1");
+                $.get('statistic/'+kota_val,function(stat){
+                    var panjang=stat.length;
+                    if(nama.length>0 && data2.length>0){
+                        nama=[];
+                        data2=[];
+                    }
+                    for(var i=0;i<panjang;i+=1){
+                        nama.push(stat[i].kot);
+                        data2.push(stat[i].jumlah);
+                    }
+                    console.log(stat);
+                    console.log(nama);
+                    console.log(data2);
+                    gambar_map();
+                });    
+            }
+            else if(kota_val!="tampilkan" && date_flag==0){
+                $.get('statistic/'+kota_val,function(stat){
+                    var panjang=stat.length;
+                    if(nama.length>0 && data2.length>0){
+                        nama=[];
+                        data2=[];
+                    }
+                    for(var i=0;i<panjang;i+=1){
+                        nama.push(stat[i].kec);
+                        data2.push(stat[i].jumlah);
+                    }
+                    console.log(stat);
+                    console.log(nama);
+                    console.log(data2);
+                    gambar_map();
+                });
+            }
+            else if(kota_val=="tampilkan" && date_flag==1){
+                console.log("masuk if 3");
+                $.get('statistic/'+kota_val+"/"+tanggal_start+"/"+tanggal_stop,function(stat){
+                    var panjang=stat.length;
+                    if(nama.length>0 && data2.length>0){
+                        nama=[];
+                        data2=[];
+                    }
+                    for(var i=0;i<panjang;i+=1){
+                        nama.push(stat[i].kot);
+                        data2.push(stat[i].jumlah);
+                    }
+                    console.log(stat);
+                    console.log(nama);
+                    console.log(data2);
+                    gambar_map();
+                });   
+            }
+            else if(kota_val!="tampilkan" && date_flag==1){
+                $.get('statistic/'+kota_val+"/"+tanggal_start+"/"+tanggal_stop,function(stat){
+                    var panjang=stat.length;
+                    if(nama.length>0 && data2.length>0){
+                        nama=[];
+                        data2=[];
+                    }
+                    for(var i=0;i<panjang;i+=1){
+                        nama.push(stat[i].kec);
+                        data2.push(stat[i].jumlah);
+                    }
+                    console.log(stat);
+                    console.log(nama);
+                    console.log(data2);
+                    gambar_map();
+                });   
+            }
         });
         
         $('.hehe').click(function()
@@ -294,78 +368,6 @@
             } 
             tanggal_stop=$(this).val(); 
         }); 
-
-
-        $('#kota_filter').change(function(){
-            var kota_val=$('#kota_filter').val();
-            console.log(kota_val);
-            if(kota_val=="tampilkan" && date_flag==0){
-                console.log("masuk if 1");
-                $.get('statistic/'+kota_val,function(stat){
-                    var panjang=stat.length;
-                    if(nama.length>0 && data2.length>0){
-                        nama=[];
-                        data2=[];
-                    }
-                    for(var i=0;i<panjang;i+=1){
-                        nama.push(stat[i].kot);
-                        data2.push(stat[i].jumlah);
-                    }
-                    console.log(stat);
-                    console.log(nama);
-                    console.log(data2);
-                });    
-            }
-            else if(kota_val!="tampilkan" && date_flag==0){
-                $.get('statistic/'+kota_val,function(stat){
-                    var panjang=stat.length;
-                    if(nama.length>0 && data2.length>0){
-                        nama=[];
-                        data2=[];
-                    }
-                    for(var i=0;i<panjang;i+=1){
-                        nama.push(stat[i].kec);
-                        data2.push(stat[i].jumlah);
-                    }
-                    console.log(stat);
-                    console.log(nama);
-                    console.log(data2);
-                });
-            }
-            else if(kota_val=="tampilkan" && date_flag==1){
-                console.log("masuk if 3");
-                $.get('statistic/'+kota_val+"/"+tanggal_start+"/"+tanggal_stop,function(stat){
-                    var panjang=stat.length;
-                    if(nama.length>0 && data2.length>0){
-                        nama=[];
-                        data2=[];
-                    }
-                    for(var i=0;i<panjang;i+=1){
-                        nama.push(stat[i].kot);
-                        data2.push(stat[i].jumlah);
-                    }
-                    console.log(stat);
-                    console.log(nama);
-                    console.log(data2);
-                });   
-            }
-            else if(kota_val!="tampilkan" && date_flag==1){
-                $.get('statistic/'+kota_val+"/"+tanggal_start+"/"+tanggal_stop,function(stat){
-                    var panjang=stat.length;
-                    if(nama.length>0 && data2.length>0){
-                        nama=[];
-                        data2=[];
-                    }
-                    for(var i=0;i<panjang;i+=1){
-                        nama.push(stat[i].kec);
-                        data2.push(stat[i].jumlah);
-                    }
-                    console.log(stat);
-                    console.log(nama);
-                    console.log(data2);
-                });   
-            }   
-        });
     });
 </script>
 @stop
