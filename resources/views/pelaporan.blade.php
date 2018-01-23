@@ -60,7 +60,11 @@
                                                 </label>
                                                 <h4 id="camera" class="">Ambil gambar</h4>
                                             </li>
-
+                                            <li>
+                                                <h4><i class="icon fa fa-user fa-1x" style="color:#FEE901;"></i>&nbsp;&nbsp;Nama</h4>
+                                                <input type="number" id="tel" name="nama" class="noTelp_" pattern="\d{10}" placeholder="Nama"/>
+                                                <p style="color:red;">*tidak wajib diisi</p>
+                                            </li>
                                             <li>
                                                 <h4><i class="icon fa fa-phone-square fa-1x" style="color:#FEE901;"></i>&nbsp;&nbsp;Nomor HP</h4>
                                                 <input type="number" id="tel" name="noTelp" class="noTelp_" pattern="\d{10}" placeholder="Nomor HP" required="required" />

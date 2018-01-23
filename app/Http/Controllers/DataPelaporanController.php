@@ -127,6 +127,7 @@ class DataPelaporanController extends Controller
         $ss = 0;
 
         $status=DataPelaporan::create([
+                'nama' =>$request->nama,
                 'keterangan'=>$request->keterangan,
                 'lat'=>$request->lat,
                 'lon'=>$request->lon,
@@ -282,7 +283,7 @@ class DataPelaporanController extends Controller
             $pdf->Image(asset('/uploads/resources/'.$n->foto),55,30,90,60);
             $pdf->Cell(40,90,'',0,1);
             $pdf->Cell(40,10,'Nama',0,0);
-            $pdf->Cell(50,10,': '.$n->created_at,0,1);
+            $pdf->Cell(50,10,': '.$n->nama,0,1);
             $pdf->Cell(40,10,'Tanggal',0,0);
             $pdf->Cell(50,10,': '.$n->created_at,0,1);
             $pdf->Cell(40,10,'Nomor telepon',0,0);

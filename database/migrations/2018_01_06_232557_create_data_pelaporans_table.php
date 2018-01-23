@@ -15,6 +15,7 @@ class CreateDataPelaporansTable extends Migration
     {
         Schema::create('data_pelaporans', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nama')->nullable();
             $table->string('keterangan')->nullable();
             $table->string('noTelp')->nullable();
             $table->string('lat')->nullable();
