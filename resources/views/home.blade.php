@@ -75,7 +75,7 @@
         <div class="col-sm-3">
             <label style="color:transparent;">-</label>
             <div class="form-group">
-                <input type='submit' id="submit_filter" class="form-control btn btn-primary" />
+                <input type='submit' id="submit_filter" class="form-control btn btn-primary" value="Tampilkan" />
             </div>
         </div>
     </div>
@@ -262,6 +262,10 @@
                 console.log(tampan);
                 $('#sutayar'+a).html("<button id=\"pop_modal\" class=\"hehe btn btn-success btn-sm\" value=\""+a+"\" data-toggle=\"modal\" data-target=\"#"+a+"\"><span class=\"fa fa-eye\"></span>&nbsp;Read</button>\
                         <input type=\"hidden\" id=\"cek_reader\" value=\""+a+"\">");
+                $.get('n_notif',function(jumlah){
+                    $('#n_notif').empty();
+                    $('#n_notif').text(jumlah+" Laporan");
+                });
             })
             var id_modal = $(this).val();
             console.log(id_modal);
