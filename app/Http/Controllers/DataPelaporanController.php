@@ -268,7 +268,7 @@ class DataPelaporanController extends Controller
     {
         $pdf = new \fpdf\FPDF();
         $pdf->AddPage();
-        $pdf->SetFont('Arial','B',16,0,0);
+        $pdf->SetFont('Arial','B',12,0,0);
 
         $data1 = DataPelaporan::where('id',$id)->get();
         $data2 = transaksi::where('id_laporan',$id)->get();
@@ -281,13 +281,18 @@ class DataPelaporanController extends Controller
         {
             $pdf->Image(asset('/uploads/resources/'.$n->foto),55,30,90,60);
             $pdf->Cell(40,90,'',0,1);
-            $pdf->Cell(40,10,'Tanggal : '.$n->created_at,0,1);
-            $pdf->Cell(40,10,'Nomor HP : '.$n->noTelp,0,1);
-            $pdf->Cell(40,10,'Petugas : '.$key,0,1);
-            $pdf->SetFont('Arial','B',11,0,0);
-            $pdf->Cell(40,10,'Keterangan : '.$n->keterangan,0,1);
-            $pdf->Cell(40,10,'Lokasi : '.$n->lokasi,0,1);
-            $pdf->Cell(40,10,'Detail Lokasi : '.$n->ketlok,0,1);
+            $pdf->Cell(40,10,'Nama',0,0);
+            $pdf->Cell(50,10,': '.$n->created_at,0,1);
+            $pdf->Cell(40,10,'Tanggal',0,0);
+            $pdf->Cell(50,10,': '.$n->created_at,0,1);
+            $pdf->Cell(40,10,'Nomor telepon',0,0);
+            $pdf->Cell(50,10,': '.$n->noTelp,0,1);
+            $pdf->Cell(40,10,'Keterangan',0,0);
+            $pdf->Cell(50,10,': '.$n->keterangan,0,1);
+            $pdf->Cell(40,10,'Lokasi',0,0);
+            $pdf->Cell(50,10,': '.$n->lokasi,0,1);
+            $pdf->Cell(40,10,'Detail Lokasi',0,0);
+            $pdf->Cell(50,10,': '.$n->lokasi,0,1);
         }
         $pdf->Output();
         die;
