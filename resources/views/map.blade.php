@@ -83,7 +83,7 @@
             var panjang_kotah=alamat__.length;
             var kecah=alamat__[panjang_kotah-4];
             var kotah=alamat__[panjang_kotah-3];
-            if(kotah!=" Kediri" || kotah!=" Kabupaten Nganjuk" || kotah!=" Kabupaten Jombang"){
+            if(kotah!=" Kediri" || kotah!=" Kabupaten Nganjuk" || kotah!=" Kabupaten Jombang" || kotah!="Kediri" || kotah!="Kabupaten Nganjuk" || kotah!="Kabupaten Jombang"){
               kotah="Lainnya"
             }
             if(kecah===" Kec. Kota Kediri" || kecah===" Mojoroto" || kecah===" Pesantren"){

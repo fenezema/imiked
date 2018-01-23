@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
     
       <h4>
-          <img src="{!! asset('template/images/logo.PNG') !!}" alt="" height="40" width="40" />
+          <img src="{!! asset('/uploads/resources/logo.PNG') !!}" alt="" height="40" width="40" />
           @if(Auth::guest())
             <a href="{{route('lapor')}}" style="color: #FEE901;"><span style="color: white;">PELAPORAN </span>ONLINE</a>
           @else

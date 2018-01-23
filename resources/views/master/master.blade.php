@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
             <div class="logo">
                 <h1>
-                    <img src="{!! asset('template/images/logo.PNG') !!}" alt="" height="50" width="50" />
+                    <img src="{!! asset('/uploads/resources/logo.PNG') !!}" alt="" height="50" width="50" />
                     <a href="{{route('lapor')}}" style="color: #FEE901;"><span style="color: white;">PELAPORAN </span>ONLINE</a>
                 </h1>
             </div>
