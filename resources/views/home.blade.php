@@ -68,7 +68,7 @@
                     <option>Kota Kediri</option>
                     <option>Kabupaten Jombang</option>
                     <option>Kabupaten Nganjuk</option>
-                    <option>Lainnya</option>
+                    <option value="Lainnya">Lainnya</option>
                 </select>
             </div>
         </div>
@@ -310,6 +310,40 @@
                 });   
             }
             else if(kota_val!="tampilkan" && date_flag==1){
+                $.get('statistic/'+kota_val+"/"+tanggal_start+"/"+tanggal_stop,function(stat){
+                    var panjang=stat.length;
+                    if(nama.length>0 && data2.length>0){
+                        nama=[];
+                        data2=[];
+                    }
+                    for(var i=0;i<panjang;i+=1){
+                        nama.push(stat[i].kec);
+                        data2.push(stat[i].jumlah);
+                    }
+                    console.log(stat);
+                    console.log(nama);
+                    console.log(data2);
+                    gambar_map();
+                });   
+            }
+            else if(kota_val=="Lainnya" && date_flag==0){
+                $.get('statistic/'+kota_val,function(stat){
+                    var panjang=stat.length;
+                    if(nama.length>0 && data2.length>0){
+                        nama=[];
+                        data2=[];
+                    }
+                    for(var i=0;i<panjang;i+=1){
+                        nama.push(stat[i].kec);
+                        data2.push(stat[i].jumlah);
+                    }
+                    console.log(stat);
+                    console.log(nama);
+                    console.log(data2);
+                    gambar_map();
+                });   
+            }
+            else if(kota_val=="Lainnya" && date_flag==1){
                 $.get('statistic/'+kota_val+"/"+tanggal_start+"/"+tanggal_stop,function(stat){
                     var panjang=stat.length;
                     if(nama.length>0 && data2.length>0){
