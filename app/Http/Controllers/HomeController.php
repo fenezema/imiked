@@ -26,7 +26,7 @@ class HomeController extends Controller
     public function index()
     {
         $data=DataPelaporan::orderBy('created_at','desc')->get();
-        $query="select * from data_pelaporans where status=0";
+        $query="select * from data_pelaporans where status=0  order by created_at desc";
         $stat = DB::select($query);
         return view('home',compact('data','stat'));
     }

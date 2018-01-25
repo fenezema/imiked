@@ -16,14 +16,14 @@
     <?php $ii=0; ?>
     @foreach($stat as $n)
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">
+        <button class="hehe dropdown-item" value="{{$n->id}}" data-toggle="modal" data-target="#{{$n->id}}">
             <span class="text-success">
             <strong>
             <i class="fa fa-long-arrow-up fa-fw"></i>{{$n->noTelp}}</strong>
             </span>
             <span class="small float-right text-muted">{{$n->kot}}</span>
             <div class="dropdown-message small">{{$n->keterangan}}</div>
-        </a>
+        </button>
         @if($ii==2)
            @break
         @endif
