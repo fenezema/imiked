@@ -21,12 +21,14 @@ class DataPelaporanController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function n_notif(){
-        $query="select * from data_pelaporans where status=0";
+    public function n_notif()
+    {
+        $query="select * from data_pelaporans where status=0 order by created_at desc";
         $stat = DB::select($query);
         $count=Count($stat);
         return Response::json($count);
     }
+
     public function getByFilter(Request $req,$kota)
     {
         if($kota==="tampilkan"){
@@ -185,7 +187,7 @@ class DataPelaporanController extends Controller
     public function unread()
     {
         $data=DataPelaporan::where('status',0)->orderBy('created_at','desc')->get();
-        $query="select * from data_pelaporans where status=0";
+        $query="select * from data_pelaporans where status=0  order by created_at desc";
         $stat = DB::select($query);
         //$data = DB::select($query);
         return view('home',compact('data','stat'));
