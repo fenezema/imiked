@@ -175,27 +175,27 @@ ul.callbacks_tabs.callbacks1_tabs {
     color: #1cebe1;
 }
 .banner1{
-	background: url(../images/2.jpg) no-repeat;
+	background: url(../images/8.jpg) no-repeat;
 	width:100%;
-	min-height: 700px;
+	height: 80vh;
 	background-size: cover;
 	-webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
 }
 .banner2{
 	background: url(../images/4.jpg) no-repeat;
 	width:100%;
-	min-height: 700px;
+	height: 80vh;
 	background-size: cover;
 	-webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
 }
 .banner3{
-	background: url(../images/5.jpg) no-repeat;
+	background: url(../images/6.jpg) no-repeat;
 	width:100%;
-	min-height: 700px;
+	height: 80vh;
 	background-size: cover;
 	-webkit-background-size: cover;
   -moz-background-size: cover;
