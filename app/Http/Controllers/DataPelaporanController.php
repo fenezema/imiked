@@ -150,7 +150,11 @@ class DataPelaporanController extends Controller
         // // Send
         // mail('findryankurnia@gmail.com', 'PELAPORAN', $message);
         if($request->hasFile('foto')){
-            Image::make($foto)->resize(1050, null, function ($constraint) {$constraint->aspectRatio();})->save(public_path('/uploads/resources/'.$filename));
+            $img=Image::make($foto->getRealPath());
+           
+            $img->resize(1050, null, function ($constraint) {$constraint->aspectRatio();});
+            
+            $img->save(public_path('/uploads/resources/'.$filename));
             if ($status){
                 return redirect(route('lapor.submit'))->with('success', trans('Pelaporan Sukses!'));
             }
@@ -228,6 +232,10 @@ class DataPelaporanController extends Controller
     public function destroy(DataPelaporan $dataPelaporan,$id)
     {
         $del=DataPelaporan::findorfail($id);
+        $del_transaksi=transaksi::where('id_laporan',$id)->get();
+        foreach ($del_transaksi as $key) {
+            $key->delete();
+        }
         $del->delete();
         return redirect(route('home'))->with('delsuccess',trans('Laporan telah dihapus'));
     }
@@ -285,17 +293,17 @@ class DataPelaporanController extends Controller
             $pdf->Image(asset('/uploads/resources/'.$n->foto),55,30,90,60);
             $pdf->Cell(40,90,'',0,1);
             $pdf->Cell(40,10,'Nama',0,0);
-            $pdf->Cell(50,10,': '.$n->nama,0,1);
+            $pdf->MultiCell(120,10,': '.$n->nama,0,1);
             $pdf->Cell(40,10,'Tanggal',0,0);
-            $pdf->Cell(50,10,': '.$n->created_at,0,1);
+            $pdf->MultiCell(120,10,': '.$n->created_at,0,1);
             $pdf->Cell(40,10,'Nomor telepon',0,0);
-            $pdf->Cell(50,10,': '.$n->noTelp,0,1);
+            $pdf->MultiCell(120,10,': '.$n->noTelp,0,1);
             $pdf->Cell(40,10,'Keterangan',0,0);
-            $pdf->Cell(50,10,': '.$n->keterangan,0,1);
+            $pdf->MultiCell(120,10,': '.$n->keterangan,0,1);
             $pdf->Cell(40,10,'Lokasi',0,0);
-            $pdf->Cell(50,10,': '.$n->lokasi,0,1);
+            $pdf->MultiCell(120,10,': '.$n->lokasi,0,1);
             $pdf->Cell(40,10,'Detail Lokasi',0,0);
-            $pdf->Cell(50,10,': '.$n->lokasi,0,1);
+            $pdf->MultiCell(120,10,': '.$n->ketlok,0,1);
         }
         $pdf->Output();
         die;
