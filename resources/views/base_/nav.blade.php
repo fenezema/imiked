@@ -35,13 +35,13 @@
           </a>
           <ul class="sidenav-second-level collapse" id="collapseExamplePages">
             <li>
-              <a href="">Semua laporan</a>
+              <a href="{{route('home')}}">Semua laporan</a>
             </li>
             <li>
-              <a href="">Belum dibaca</a>
+              <a href="{{route('unread')}}">Belum dibaca</a>
             </li>
             <li>
-              <a href="">Sudah dibaca</a>
+              <a href="{{route('readed')}}">Sudah dibaca</a>
             </li>
           </ul>
         </li>
