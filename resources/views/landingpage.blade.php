@@ -18,44 +18,45 @@
 @stop
 
 @section('content')
-<div class=" header-right" style="margin-top: 16vh; margin-bottom: 1vh;">
-        <div class="banner">
-        <div id="spinner" class="spinner" style="display:none;">
-                  <img id="img-spinner" style="z-index: 1" src="{{asset('/uploads/resources/loading.gif')}}" alt="Loading"/><br>Loading...
+<div style="margin-top: 14vh; margin-bottom: 0vh;">
+  <div class=" header-right">
+  <div class="banner">
+      <div id="spinner" class="spinner" style="display:none;">
+        <img id="img-spinner" style="z-index: 2000;" src="{{asset('/uploads/resources/loading.gif')}}" alt="Loading"/><br>Loading...
+      </div>
+      <div class="slider">
+        <div class="callbacks_container">
+          <ul class="rslides" id="slider">             
+             <li>
+                 <div class="banner1">
+                    <div class="caption">
+                        <h3><span>Imigrasi</span> Kediri</h3>
+                        <p><a class="cek_lokasi btn btn-success">Laporkan</a></p>
+                    </div>
                 </div>
-             <div class="slider">
-                <div class="callbacks_container">
-                  <ul class="rslides" id="slider">             
-                     <li>
-                         <div class="banner1">
-                            <div class="caption">
-                                <h3><span>Imigrasi</span> Kediri</h3>
-                                <p><a class="cek_lokasi btn btn-success">Laporkan</a></p>
-                            </div>
-                        </div>
-                     </li>
-                     <li>
-                         <div class="banner2">
-                            <div class="caption">
-                                <h3><span>Imigrasi</span> memberi pelayanan</h3>
-                                <p><a class="cek_lokasi btn btn-success">Laporkan</a></p>
-                            </div>
-                        </div>
-                     </li>
-                     <li>
-                         <div class="banner3">
-                            <div class="caption">
-                                <h3><span>Imigrasi</span> bekerja keras</h3>
-                                <p><a class="cek_lokasi btn btn-success">Laporkan</a></p>
-                            </div>
-                        </div>
-                     </li>
-                  </ul>
-              </div>
-            </div>
+             </li>
+             <li>
+                 <div class="banner2">
+                    <div class="caption">
+                        <h3><span>Imigrasi</span> memberi pelayanan</h3>
+                        <p><a class="cek_lokasi btn btn-success">Laporkan</a></p>
+                    </div>
+                </div>
+             </li>
+             <li>
+                 <div class="banner3">
+                    <div class="caption">
+                        <h3><span>Imigrasi</span> bekerja keras</h3>
+                        <p><a class="cek_lokasi btn btn-success">Laporkan</a></p>
+                    </div>
+                </div>
+             </li>
+          </ul>
         </div>
+      </div>
     </div>
-
+  </div>
+</div>
 <script src="js/bootstrap.js"></script>
 <script src="js/responsiveslides.min.js"></script>
    <script>
