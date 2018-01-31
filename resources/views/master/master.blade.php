@@ -32,7 +32,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     margin-left: -50px; /* half width of the spinner gif */
     margin-top: -50px; /* half height of the spinner gif */
     text-align:center;
-    z-index:1;
+    z-index:2000;
     overflow: auto;
     width: 100%; /* width of the spinner gif */
     height: 100%; /*hight of the spinner gif +2px to fix IE8 issue */
