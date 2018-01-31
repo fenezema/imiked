@@ -52,9 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="{{route('lapor')}}" style="color: #FEE901;"><span style="color: white;">PELAPORAN </span>ONLINE</a>
                 </h1>
             </div>
-          <!-- <div class="w3layouts-login">
-                <a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>Login/Register</a>
-            </div>   -->  
+
                 <div class="clearfix"></div>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
             aria-hidden="true">
@@ -181,8 +179,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     });
                 });
             </script>
-            <!-- start-smoth-scrolling -->
-        <!-- //here ends scrolling icon -->
 </body>
 <!-- //body -->
 </html>
