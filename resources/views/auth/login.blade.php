@@ -57,10 +57,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                 <form id="loginform" class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
                     {{ csrf_field() }}
-                    <div style="margin-bottom: 25px" class="input-group{{ $errors->has('email') ? ' has-error' : '' }}"">
+                    <div style="margin-bottom: 25px" class="input-group{{ $errors->has('nip') ? ' has-error' : '' }}">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input id="login-username" type="text" class="form-control" name="nip" placeholder="NIP">                                        
+                        <input id="login-username" type="text" class="form-control" name="nip" placeholder="NIP"> 
                     </div>
+                    @if($errors->has('nip'))
+                        <span class="help-block">
+                        <strong>{{ $errors->first('nip') }}</strong>
+                        </span>
+                    @endif
                     <div style="margin-bottom: 25px" class="input-group{{ $errors->has('password') ? ' has-error' : '' }}">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                         <input id="login-password" type="password" class="form-control" name="password" placeholder="Password">

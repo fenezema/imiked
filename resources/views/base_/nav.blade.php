@@ -81,7 +81,7 @@
             @if(Auth::user()->role=="admin")
             <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="{{route('addUser')}}">
-                Tambah User
+                Tambah Petugas
               </a>
             @endif
 

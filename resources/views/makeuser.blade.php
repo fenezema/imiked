@@ -8,7 +8,7 @@
 
 @section('content')
 <div class="container">
-    <h3 class="w3-head">Tambah User Baru</h3>
+    <h3 class="w3-head">Tambah Petugas Baru</h3>
     <div class="row">
         <div class="col-sm-8">
             <form action="{{route('addUser.submit')}}" method="POST" id="contactForm">
