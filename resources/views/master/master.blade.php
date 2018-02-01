@@ -32,7 +32,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     margin-left: -50px; /* half width of the spinner gif */
     margin-top: -50px; /* half height of the spinner gif */
     text-align:center;
-    z-index:1;
+    z-index: 3000;
     overflow: auto;
     width: 100%; /* width of the spinner gif */
     height: 100%; /*hight of the spinner gif +2px to fix IE8 issue */
@@ -52,9 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <a href="{{route('lapor')}}" style="color: #FEE901;"><span style="color: white;">PELAPORAN </span>ONLINE</a>
                 </h1>
             </div>
-          <!-- <div class="w3layouts-login">
-                <a data-toggle="modal" data-target="#myModal" href="#"><i class="glyphicon glyphicon-user"> </i>Login/Register</a>
-            </div>   -->  
+
                 <div class="clearfix"></div>
         <div class="modal fade" id="myModal" tabindex="-1" role="dialog" 
             aria-hidden="true">
@@ -181,8 +179,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     });
                 });
             </script>
-            <!-- start-smoth-scrolling -->
-        <!-- //here ends scrolling icon -->
 </body>
 <!-- //body -->
 </html>
